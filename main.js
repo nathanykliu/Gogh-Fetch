@@ -94,17 +94,28 @@ $(function() {
         
         $.get(detailUrl, function(artwork) {
             if (artwork.primaryImageSmall) {
-                // create a new div for each artwork
+                // Create a new div for each artwork
                 let artworkDiv = $('<div>').addClass('artwork');
                 artworkDiv.append($('<img>').attr('src', artwork.primaryImageSmall));
                 artworkDiv.append($('<h2>').text(artwork.title));
-                artworkDiv.append($('<p>').text(artwork.artistDisplayName));
-                artworkDiv.append($('<p>').text(artwork.objectDate));
-                artworkDiv.append($('<p>').text(artwork.medium));
-                artworkDiv.append($('<p>').text(artwork.dimensions));
+        
+                // Add artist and date on the same line
+                let artistAndDate = $('<p>');
+                artistAndDate.append($('<span>').attr('id', 'artwork-artist').text(artwork.artistDisplayName));
+                artistAndDate.append(', ');
+                artistAndDate.append($('<span>').attr('id', 'artwork-date').text(artwork.objectDate));
+                artworkDiv.append(artistAndDate);
+        
+                // Add medium and dimensions on another line
+                let mediumAndDimensions = $('<p>');
+                mediumAndDimensions.append($('<span>').attr('id', 'artwork-medium').text(artwork.medium));
+                mediumAndDimensions.append(', ');
+                mediumAndDimensions.append($('<span>').attr('id', 'artwork-dimensions').text(artwork.dimensions));
+                artworkDiv.append(mediumAndDimensions);
+        
                 artworkDiv.append($('<a>').attr('href', artwork.objectURL).text('View on MET'));
-                
-                // append the artwork to the gallery container
+        
+                // Append the artwork to the gallery container
                 $('#gallery').append(artworkDiv);
             }
         });

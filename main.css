@@ -21,7 +21,7 @@ img {
     background-color: #ffffff;
     align-items: center;  
     justify-content: center;
-    text-align: center; 
+    text-align: center;
     border-radius: 5px; 
     box-shadow: 0 0 10px rgba(0,0,0,0.1); 
     padding: 30px 30px; 
@@ -29,6 +29,7 @@ img {
     width: 80%;
     max-width: 1200px;
     margin: 40px auto;
+    font-size: 16px;
 }
 
 .artwork {
@@ -41,6 +42,10 @@ img {
 
 #artwork-date {
     font-style: italic;
+}
+
+#artwork-title {
+    font-weight: bold;
 }
 
 .loading-message {
@@ -58,6 +63,7 @@ button#fetch-another {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 16px
 }
 
 button#fetch-another:hover {
