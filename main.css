@@ -1,0 +1,176 @@
+
+
+.title-container {
+    position: absolute;   /* Absolute positioning */
+    top: 20px;            /* 20px from the top */
+    left: 50%;            /* Centered horizontally */
+    transform: translateX(-50%);  /* Offset its own width for perfect centering */
+
+    border-radius: 8px;   /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  /* Slight shadow for depth */
+    z-index: 1000;        /* Ensure it's above other elements, including the map */
+    width: 300px;
+    height: 130px;
+    background-image: url('baypot.png'); /* Set your image path here */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the image */
+    background-color: rgba(255, 8, 0, 0.7);
+}
+
+.title-container h1 {
+    margin: 0;            /* Remove default margin */
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.info-container {
+    position: absolute;
+    width: 310px;
+    height: 510px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    padding: 10px 15px; /* increased padding */
+    border-radius: 12px; /* smoother rounded corners */
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.9)); /* subtle gradient */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* softer shadow */
+    z-index: 1000;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5; /* improve readability */
+    letter-spacing: 0.5px; /* enhance text appearance */
+    transition: all 0.3s ease; /* smooth transition for any changes */
+}
+
+.info-container h2 {
+    text-align: center;
+    font-weight: 500; /* Medium font weight for a sleeker look */
+    margin-bottom: 15px; /* Spacing between the title and the image */
+}
+
+.info-container:hover {
+    transform: translateY(-52%); /* slight move up */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* increased shadow on hover */
+}
+
+#color {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+h1 {
+    font-weight: 500; /* Medium weight */
+    font-size: 24px;
+    margin-top: 50px; /* Adjust based on how far from the top you want the title */
+}
+
+#infoBox {
+    position: fixed;   /* Makes it stick to the viewport */
+    bottom: 30px;      /* Position it 10px from the bottom */
+    right: 10px;       /* Position it 10px from the right */
+    width: 200px;      /* Set a fixed width */
+    background-color: rgba(255, 255, 255, 0.8);   /* Slightly transparent white */
+    border: 1px solid #000;  /* Black border */
+    padding: 10px;     /* Some spacing inside the box */
+    border-radius: 5px;   /* Rounded corners */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);  /* A subtle shadow */
+    z-index: 1000;     /* Make sure it's on top of other elements */
+}
+
+#infoBox h3 {
+    margin-top: 0;     /* Remove top margin for aesthetics */
+    margin-inline: 0; /* Remove side margins for aesthetics */
+}
+
+/* gallery & scrolling features */
+.gallery-container {
+    position: relative;
+    width: 310px; 
+    margin: 0 auto;
+}
+
+.gallery-img {
+    width: 100%;
+    display: none;
+}
+
+.show-img {
+    display: block;
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.6);
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.arrow:hover {
+    background-color: rgba(255,255,255,0.8);
+}
+
+.arrow-left {
+    left: 0;
+}
+
+.arrow-right {
+    right: 0;
+}
+
+.prev-btn, .next-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: 0.6s ease;
+    user-select: none;
+    z-index: 10;
+    transform: translateY(-50%); /* Centers the button vertically */
+}
+
+.prev-btn {
+    left: -40px; /* Adjust as needed, depending on the size and padding of your buttons */
+}
+
+.next-btn {
+    right: -40px; /* Adjust as needed */
+}
+/* end gallery & scrolling features */
