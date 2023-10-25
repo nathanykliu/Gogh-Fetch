@@ -1,33 +1,25 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
-        <link rel="icon" href="favicon.png">
-        <title>bay.pot | The Best Hot Pot in the Bay Area</title>
-        <link rel="stylesheet" href="/main.css">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
-    </head>
-    <body>
-        <div class="title-container">
-            <h1></h1>
-        </div>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
-        <script src="main.js">
-            
-        </script>
-            <div class="info-container">
-                <h2>What is Hot Pot?</h2>
-                <img src="hotpot.png" alt="A traditional Hot Pot" width="310" height="178">
-                <p>
-                    Hot pot or hotpot, also known as shabu shabu or steamboat, is a dish of Chinese origin whereby a heat source placed on the dining table keeps a pot of soup stock simmering, and a variety of meats and other ingredients are served beside the pot for the diners to put into the hot stock. It originated during the "Three Kingdoms" period (200 - 280AD).
-                    <br><a href="https://en.wikipedia.org/wiki/Hot_pot" target="_blank">Learn more on Wikipedia</a>.
-                </p>
-            </div>
-        </div>
-        <div id="map" style="width: 100%; height: 100%;"></div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gogh Fetch</title>
+    <img src = "images/blacklogo.png" alt = "logo" width = "100" height = "100">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="artwork-container">
+        <img id="artwork-image" alt="Random Artwork" />
+        <h2 id="artwork-title"></h2>
+        <p id="artwork-artist"></p>
+        <p id="artwork-date"></p>
+        <p id="artwork-medium"></p>
+        <p id="artwork-dimensions"></p>
+        <a id="artwork-url" href="#" target="_blank">View on MET Museum</a>
+        <div class="loading-message">Fetching random artwork...</div>
+        <button id="fetch-another">Fetch me another!</button>
+    </div>
+</body>
 </html>
