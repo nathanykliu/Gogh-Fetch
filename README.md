@@ -6,8 +6,7 @@ This frontend project was designed as part of my Galvanize Course. It uses the M
 
 [View this project on GitHub](https://github.com/nateykliu/Frontend)
 
-![ScreenShot](images/preview.png)
-
+![ScreenShot]([images/preview.png](https://raw.githubusercontent.com/nateykliu/Gogh-Fetch/master/images/preview.png)https://raw.githubusercontent.com/nateykliu/Gogh-Fetch/master/images/preview.png)
 Resources Used:
 JQuery Library
 MET API (https://metmuseum.github.io/)
