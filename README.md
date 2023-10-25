@@ -6,8 +6,7 @@ This frontend project was designed as part of my Galvanize Course. It uses the M
 
 
 Resources Used:
-JQuery Library
-MET API (https://metmuseum.github.io/)
+JQuery Library, MET API (https://metmuseum.github.io/)
 
 [View this project on GitHub](https://github.com/nateykliu/Frontend)
 
