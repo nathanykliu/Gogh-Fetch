@@ -5,11 +5,9 @@ body {
     background-color: #f4f4f4; 
 }
 
-
-
 img[alt="logo"] {
     display: block;
-    margin: 0 auto 5px;  /* Reduce the bottom margin of the logo */
+    margin: 0 auto 5px;
     width: 400px; 
     height: 100px; 
 }
@@ -21,18 +19,17 @@ img {
 
 .artwork-container {
     background-color: #ffffff;
-    align-items: center;    /* This centers children horizontally */
-    justify-content: center;/* This centers children vertically */
-    text-align: center;     /* This centers text in the children */
+    align-items: center;  
+    justify-content: center;
+    text-align: center; 
     border-radius: 5px; 
     box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-    padding: 30px 30px;      /* Reduce the top and bottom padding of the container */
-    max-width: 600px; 
+    padding: 30px 30px; 
     margin: 0 auto; 
 }
 
 .loading-message {
-    display: none; /* Hide it by default. Show it using jQuery when fetching */
+    display: none; 
     color: #888;
 }
 
@@ -52,19 +49,70 @@ button#fetch-another:hover {
     background-color: #555;
 }
 #infoBox {
-    position: fixed;   /* Makes it stick to the viewport */
-    bottom: 30px;      /* Position it 10px from the bottom */
-    right: 10px;       /* Position it 10px from the right */
-    width: 200px;      /* Set a fixed width */
-    background-color: rgba(255, 255, 255, 0.8);   /* Slightly transparent white */
-    border: 1px solid #000;  /* Black border */
-    padding: 10px;     /* Some spacing inside the box */
-    border-radius: 5px;   /* Rounded corners */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);  /* A subtle shadow */
-    z-index: 1000;     /* Make sure it's on top of other elements */
+    position: fixed;   
+    bottom: 30px;
+    right: 10px;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 #infoBox h3 {
-    margin-top: 0;     /* Remove top margin for aesthetics */
-    margin-inline: 0; /* Remove side margins for aesthetics */
+    margin-top: 0;
+    margin-inline: 0; 
+}
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 300px;
+    outline: none;
+}
+
+#search-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s;
+}
+
+#search-btn:hover {
+    background-color: #555;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 10px;  /* adjust as needed */
+    left: 10px;    /* adjust as needed */
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000; /* to ensure it's on top of other elements */
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+#back-to-top-button {
+    opacity: 1;
 }

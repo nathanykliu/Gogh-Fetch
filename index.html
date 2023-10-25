@@ -9,17 +9,26 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <button id="back-to-top" style="display: none;">BACK TO TOP</button>
     <img src = "images/blacklogo.png" alt = "logo" width = "100" height = "100">
     <div class="artwork-container">
-        <img id="artwork-image" alt="Random Artwork" />
-        <h2 id="artwork-title"></h2>
-        <p id="artwork-artist"></p>
-        <p id="artwork-date"></p>
-        <p id="artwork-medium"></p>
-        <p id="artwork-dimensions"></p>
-        <a id="artwork-url" href="#" target="_blank">View on MET Museum</a>
-        <div class="loading-message">Fetching random artwork...</div>
-        <button id="fetch-another">Fetch me another!</button>
+        <input type="text" id="search-input" placeholder="Search for a specific artist or painting">
+        <button id="search-btn">Search</button><br><br>
+        <!-- gallery -->
+        <div id="gallery"></div>
+        <!-- random artwork -->
+            <div id="random-artwork">
+                <img id="artwork-image" alt="Random Artwork" />
+                <h2 id="artwork-title"></h2>
+                <p id="artwork-artist"></p>
+                <p id="artwork-date"></p>
+                <p id="artwork-medium"></p>
+                <p id="artwork-dimensions"></p>
+                <a id="artwork-url" href="#" target="_blank">View on MET Museum</a>
+                <div class="loading-message">Fetching random artwork...</div>
+                <button id="fetch-another">Fetch me another!</button>
+        </div>
     </div>
+    <div class="search-container"></div>
 </body>
 </html>
