@@ -1,10 +1,14 @@
 
-$(document).ready(function() {
+
+
+//wrapping everything in a document ready function
+$(function() {
     createInfoBox();
     let randomArt = [];
     let $backToTopButton = $('#back-to-top');
-    
-    $('#fetch-another').click(function() {
+
+    //fetch another artwork button
+    $('#fetch-another').on("click", function() {
         fetchRandomArtwork();
     });
 
@@ -14,6 +18,7 @@ $(document).ready(function() {
         fetchRandomArtwork();
     });
 
+    //initial fetch function
     function fetchRandomArtwork() {
         let randomIndex = Math.floor(Math.random() * randomArt.length);
         let randomObjectID = randomArt[randomIndex];
@@ -21,9 +26,11 @@ $(document).ready(function() {
         $('#random-artwork').show();
     }
 
+    //fetch random artwork details
     function fetchRandomArtworkDetails(objectID) {
         let detailUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`;
-        
+
+        //make sure the art actually has a photo, and if it does, display the details below
         $.get(detailUrl, function(artwork) {
             if (artwork.primaryImageSmall) {
                 $('#artwork-image').attr('src', artwork.primaryImageSmall);
@@ -38,20 +45,22 @@ $(document).ready(function() {
             }
         });
     }
-    // Get the search button and input elements
+    // get the search button and input elements
     const searchBtn = document.getElementById('search-btn');
     const searchInput = document.getElementById('search-input');
 
-
+    //adding event listeners for clicking and pressing enter on the search button
     searchBtn.addEventListener('click', function() {
         performSearch(searchInput);
     });
 
     searchInput.addEventListener('keyup', function(event) {
-        if (event.key === 13) {
+        if (event.key === "Enter") {
             performSearch(searchInput);
         }
     });
+
+    //perform search for artwork using API
     function performSearch(searchInput) {
         $('#random-artwork').hide();
         let searchQuery = searchInput.value.trim();
@@ -63,7 +72,7 @@ $(document).ready(function() {
                     // clear any previous artworks
                     $('#gallery').empty();
                     
-                    // loop through the first 10 results or as many as there are
+                    // loop through the first 20 results or as many as there are
                     for (let i = 0; i < Math.min(20, randomArt.length); i++) {
                         fetchArtworkGalleryDetails(randomArt[i]);
                     }
@@ -76,6 +85,7 @@ $(document).ready(function() {
         }
     }
 
+    //display details of the gallery artwork
     function fetchArtworkGalleryDetails(objectID) {
         let detailUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`;
         
@@ -90,16 +100,16 @@ $(document).ready(function() {
                 artworkDiv.append($('<p>').text(artwork.medium));
                 artworkDiv.append($('<p>').text(artwork.dimensions));
                 artworkDiv.append($('<a>').attr('href', artwork.objectURL).text('View on MET'));
-
+                
                 // append the artwork to the gallery container
                 $('#gallery').append(artworkDiv);
             }
         });
-
     }
+
     //back to top button at bottom left
     $backToTopButton.on('click', function() {
-        $('html, body').animate({scrollTop: 0}, 500);  // 500ms animation speed
+        $('html, body').animate({scrollTop: 0}, 750);  // 10000ms animation speed
     });
 
     $(window).on('scroll', function() {
