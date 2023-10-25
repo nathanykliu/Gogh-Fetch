@@ -149,4 +149,16 @@ $(function() {
         `;
         document.body.appendChild(infoBox);
     }
+
+    //light and dark mode toggle button logic
+    document.querySelector("#theme-toggle-checkbox").addEventListener("change", function() {
+        let currentTheme = document.documentElement.getAttribute("data-theme");
+        if (currentTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "light");
+        } else {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+    });
+
+
 });

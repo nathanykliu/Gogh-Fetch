@@ -1,8 +1,37 @@
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #000000;
+    --container-bg-color: #ffffff;
+    --button-bg-color: #333;
+    --button-bg-color-hover: #555;
+    --border-color: #ccc;
+    --input-bg-color: #fff;
+    --box-shadow-color: rgba(0,0,0,0.1);
+    --artwork-shadow-color: rgba(0, 0, 0, 0.3);
+    --infoBox-bg-color: rgba(255, 255, 255, 0.8);
+    --infoBox-text-color: #000000;
+}
+
+[data-theme='dark'] {
+    --bg-color: #121212;
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --container-bg-color: #2a2a2a;
+    --button-bg-color: #BB86FC;
+    --button-bg-color-hover: #9e55d8;
+    --border-color: #444;
+    --input-bg-color: #333;
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+    --artwork-shadow-color: rgba(255, 255, 255, 0.2);
+    --infoBox-text-color: #000000;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; 
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 img[alt="logo"] {
@@ -10,7 +39,7 @@ img[alt="logo"] {
     margin: 0 auto 5px;
     width: 400px; 
     height: 100px; 
-}
+} 
 
 img {
     max-width: 100%;
@@ -18,26 +47,38 @@ img {
 }
 
 .artwork-container {
-    background-color: #ffffff;
+    background-color: var(--container-bg-color);
+    box-shadow: 0 0 10px var(--box-shadow-color);
     align-items: center;  
     justify-content: center;
     text-align: center;
     border-radius: 5px; 
     box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-    padding: 30px 30px; 
-    margin: 0 auto; 
-    width: 80%;
+    padding: 30px 30px;  
+    width: 50%;
     max-width: 1200px;
     margin: 40px auto;
     font-size: 16px;
 }
 
 .artwork {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 
+                0 10px 20px rgba(0,0,0,0.2), 
+                0 20px 40px rgba(0,0,0,0.1);
     margin: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    margin: 20px;
-    padding: 50px;
+    padding: 20px;
     border-radius: 5px;
+    background-color: var(--container-bg-color); /* Ensure a solid background for better shadow contrast */
+}
+
+#artwork-image {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 
+    0 10px 20px rgba(0,0,0,0.2), 
+    0 20px 40px rgba(0,0,0,0.1);
+    margin: 8px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: var(--container-bg-color); /* Ensure a solid background for better shadow contrast */
 }
 
 #artwork-date {
@@ -57,7 +98,7 @@ button#fetch-another {
     display: block;
     margin: 20px auto 0;
     padding: 10px 20px;
-    background-color: #333;
+    background-color: var(--button-bg-color);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -66,25 +107,20 @@ button#fetch-another {
     font-size: 16px
 }
 
-button#fetch-another:hover {
-    background-color: #555;
-}
-#infoBox {
-    position: fixed;   
-    bottom: 30px;
-    right: 10px;
-    width: 200px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #000;
-    padding: 10px;
+#search-btn {
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: var(--button-bg-color);
+    color: #fff;
+    border: none;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px
 }
 
-#infoBox h3 {
-    margin-top: 0;
-    margin-inline: 0; 
+button#fetch-another:hover, #search-btn:hover {
+    background-color: var(--button-bg-color-hover);
 }
 
 .search-container {
@@ -95,9 +131,10 @@ button#fetch-another:hover {
 }
 
 #search-input {
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg-color);
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
     border-radius: 5px 0 0 5px;
     width: 300px;
     outline: none;
@@ -135,4 +172,100 @@ button#fetch-another:hover {
 
 #back-to-top-button {
     opacity: 1;
+}
+
+#infoBox {
+    background-color: var(--infoBox-bg-color);
+    position: fixed;   
+    bottom: 30px;
+    right: 10px;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    color: var(--infoBox-text-color);
+}
+
+#infoBox h3 {
+    margin-top: 0;
+    margin-inline: 0; 
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 50px;
+    z-index: 2000;
+}
+
+.theme-toggle-label {
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+}
+
+#theme-toggle-checkbox {
+    display: none;
+}
+
+.theme-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.theme-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 15px;
+}
+
+input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider {
+    background-color: #555;
+}
+
+input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before {
+    transform: translateX(30px);
+}
+
+.sun-icon {
+    right: 0;
+    position: absolute;
+    padding-right: 67px;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* This ensures the icons are below the slider */
+}
+
+.moon-icon {
+    left: 0;
+    position: absolute;
+    padding-right: 10px;
+    padding-left: 70px;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* This ensures the icons are below the slider */
+}
+
+.theme-toggle-slider {
+    z-index: 20; /* This ensures the slider is on top of the icons */
 }
