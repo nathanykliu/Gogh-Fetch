@@ -6,7 +6,7 @@ This frontend project was designed as part of my Galvanize Course. It uses the M
 
 [View this project on GitHub](https://github.com/nateykliu/Frontend)
 
-![image](/images/preview.png)
+![image](preview.png)
 
 Resources Used:
 JQuery Library
