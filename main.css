@@ -7,9 +7,9 @@ body {
 
 img[alt="logo"] {
     display: block;
-    margin: 10px auto 10px; 
-    width: 200px; 
-    height: 200px; 
+    margin: 0 auto 10px; 
+    width: 350px; 
+    height: 350px; 
 }
 
 .artwork-container {
@@ -19,7 +19,7 @@ img[alt="logo"] {
     text-align: center;     /* This centers text in the children */
     border-radius: 5px; 
     box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-    padding: 20px;
+    padding: 10px;
     max-width: 600px; 
     margin: 0 auto; 
 }

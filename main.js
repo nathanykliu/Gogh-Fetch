@@ -6,8 +6,8 @@ $(document).ready(function() {
         fetchRandomArtwork();
     });
 
-    // Initial fetch to get all artworks by Vincent van Gogh
-    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=Vincent van Gogh', function(data) {
+    // initial fetch to get artworks
+    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=Vincent_van_Gogh', function(data) {
         vanGoghArtworks = data.objectIDs;
         fetchRandomArtwork();
     });
