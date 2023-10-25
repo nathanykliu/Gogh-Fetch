@@ -1,24 +1,26 @@
 
 
 
-//wrapping everything in a document ready function
+//wrapping everything in a ready function
 $(function() {
+
+    //declare global variables
     createInfoBox();
     let randomArt = [];
     let $backToTopButton = $('#back-to-top');
 
-    //fetch another artwork button
+    //fetch me another button functionality
     $('#fetch-another').on("click", function() {
         fetchRandomArtwork();
     });
 
     // initial fetch to get artworks
-    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=Vincent_van_Gogh', function(data) {
+    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=van_gogh', function(data) {
         randomArt = data.objectIDs;
         fetchRandomArtwork();
     });
 
-    //initial fetch function
+    //initial fetch function (called above)
     function fetchRandomArtwork() {
         let randomIndex = Math.floor(Math.random() * randomArt.length);
         let randomObjectID = randomArt[randomIndex];
@@ -45,6 +47,7 @@ $(function() {
             }
         });
     }
+
     // get the search button and input elements
     const searchBtn = document.getElementById('search-btn');
     const searchInput = document.getElementById('search-input');
