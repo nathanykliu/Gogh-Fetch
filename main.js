@@ -1,20 +1,20 @@
 $(document).ready(function() {
     createInfoBox();
-    let vanGoghArtworks = [];
+    let randomArt = [];
 
     $('#fetch-another').click(function() {
         fetchRandomArtwork();
     });
 
     // initial fetch to get artworks
-    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=Vincent_van_Gogh', function(data) {
-        vanGoghArtworks = data.objectIDs;
+    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=Painting_European_Asian', function(data) {
+        randomArt = data.objectIDs;
         fetchRandomArtwork();
     });
 
     function fetchRandomArtwork() {
-        let randomIndex = Math.floor(Math.random() * vanGoghArtworks.length);
-        let randomObjectID = vanGoghArtworks[randomIndex];
+        let randomIndex = Math.floor(Math.random() * randomArt.length);
+        let randomObjectID = randomArt[randomIndex];
         fetchArtworkDetails(randomObjectID);
     }
 
