@@ -37,7 +37,7 @@ $(function() {
                 $('#artwork-image').attr('src', artwork.primaryImageSmall);
                 $('#artwork-title').text(artwork.title);
         
-                // Check if the artist name is present, if not, use "Unknown Artist"
+                // check if the artist name is present, if not, use "Unknown Artist"
                 if (artwork.artistDisplayName === "") {
                     $('#artwork-artist').text('Unknown Artist');
                 } else {
@@ -50,6 +50,7 @@ $(function() {
                 $('#artwork-url').attr('href', artwork.objectURL);
                 
                 console.log(artwork);
+                console.log("Art with image found!")
             } else {
                 console.log("Artwork without primary image found. Searching again...");
                 fetchRandomArtwork();
@@ -107,6 +108,7 @@ $(function() {
         } else {
             alert('Please enter a search query.');
         }
+        console.log("Search successful!")
     }
 
     //display details of the gallery artwork
@@ -172,6 +174,7 @@ $(function() {
         infoBox.innerHTML = `
             <h3>Created by Nathan Liu</h3>
             <p><a target = "_blank" href="https://github.com/nateykliu/Frontend">View this project in Github</a></p>
+            <p><a target = "_blank" href ="https://github.com/nateykliu/Gogh-Fetch/issues/new">Report a bug</a></p>
         `;
         document.body.appendChild(infoBox);
     }
