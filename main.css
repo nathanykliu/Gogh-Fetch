@@ -34,7 +34,6 @@
     color: var(--linkColor);
 }
 
-
 body {
     margin: 0;
     padding: 0;
@@ -341,7 +340,7 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     right: 10px;
     height: 40px;
     margin: 5px;
-    width: 140px;
+    width: 150px;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #000;
     padding: 10px;
