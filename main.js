@@ -8,6 +8,7 @@ $(function() {
     createInfoBox();
     let randomArt = [];
     let $backToTopButton = $('#back-to-top');
+    let modal = document.getElementById("modal");
 
     //fetch me another button functionality
     $('#fetch-another').on("click", function() {
@@ -42,8 +43,11 @@ $(function() {
                 $('#artwork-medium').text(artwork.medium);
                 $('#artwork-dimensions').text(artwork.dimensions);
                 $('#artwork-url').attr('href', artwork.objectURL);
+               
+                console.log(artwork)
             } else {
                 fetchRandomArtwork();
+                console.log(artwork)
             }
         });
     }
@@ -94,19 +98,19 @@ $(function() {
         
         $.get(detailUrl, function(artwork) {
             if (artwork.primaryImageSmall) {
-                // Create a new div for each artwork
+                // create a new div for each artwork
                 let artworkDiv = $('<div>').addClass('artwork');
                 artworkDiv.append($('<img>').attr('src', artwork.primaryImageSmall));
                 artworkDiv.append($('<h2>').text(artwork.title));
         
-                // Add artist and date on the same line
+                // add artist and date on the same line
                 let artistAndDate = $('<p>');
                 artistAndDate.append($('<span>').attr('id', 'artwork-artist').text(artwork.artistDisplayName));
                 artistAndDate.append(', ');
                 artistAndDate.append($('<span>').attr('id', 'artwork-date').text(artwork.objectDate));
                 artworkDiv.append(artistAndDate);
         
-                // Add medium and dimensions on another line
+                // add medium and dimensions on another line
                 let mediumAndDimensions = $('<p>');
                 mediumAndDimensions.append($('<span>').attr('id', 'artwork-medium').text(artwork.medium));
                 mediumAndDimensions.append(', ');
@@ -114,8 +118,8 @@ $(function() {
                 artworkDiv.append(mediumAndDimensions);
         
                 artworkDiv.append($('<a>').attr('href', artwork.objectURL).text('View on MET'));
-        
-                // Append the artwork to the gallery container
+
+                // append the artwork to the gallery container
                 $('#gallery').append(artworkDiv);
             }
         });
@@ -160,5 +164,19 @@ $(function() {
         }
     });
 
+    //modal image viewer logic
+    let modalImage = document.getElementById("modal-image");
+    let captionText = document.getElementById("modal-caption");
+    $('#gallery, #random-artwork').on('click', 'img', function() {
+    modal.style.display = "block";
+    let newSrc = $(this).attr('src').replace("PrimaryImageSmall", "PrimaryImage");
+    modalImage.src = newSrc;
+    
+    });
+
+    // close the modal when the "x" is clicked
+    $('#modal').on("click", function() {
+        $(this).css('display', 'none');
+    });
 
 });
