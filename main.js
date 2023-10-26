@@ -15,7 +15,7 @@ $(function() {
     });
 
     // initial fetch to get artworks
-    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=vincent_van_gogh_self_portrait_with_a_straw_hat', function(data) {
+    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=van_gogh', function(data) {
         randomArt = data.objectIDs;
         fetchRandomArtwork();
     });
@@ -28,27 +28,37 @@ $(function() {
         $('#random-artwork').show();
     }
 
-    //fetch random artwork details
     function fetchRandomArtworkDetails(objectID) {
         let detailUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`;
-
-        //make sure the art actually has a photo, and if it does, display the details below
-        $.get(detailUrl, function(artwork) {
-            if (artwork.primaryImageSmall) {
-                $('#artwork-image').attr('src', artwork.primaryImageSmall);
-                $('#artwork-title').text(artwork.title);
-                $('#artwork-artist').text(artwork.artistDisplayName);
-                $('#artwork-date').text(artwork.objectDate);
-                $('#artwork-medium').text(artwork.medium);
-                $('#artwork-dimensions').text(artwork.dimensions);
-                $('#artwork-url').attr('href', artwork.objectURL);
-               
-                console.log(artwork)
-            } else {
-                fetchRandomArtwork();
-                console.log(artwork)
-            }
-        });
+    
+        $.get(detailUrl)
+            .done(function(artwork) {
+                if (artwork.primaryImageSmall) {
+                    $('#artwork-image').attr('src', artwork.primaryImageSmall);
+                    $('#artwork-title').text(artwork.title);
+                    $('#artwork-artist').text(artwork.artistDisplayName);
+                    $('#artwork-date').text(artwork.objectDate);
+                    $('#artwork-medium').text(artwork.medium);
+                    $('#artwork-dimensions').text(artwork.dimensions);
+                    $('#artwork-url').attr('href', artwork.objectURL);
+                    
+                    console.log(artwork);
+                } else {
+                    console.log("Artwork without primary image found. Searching again...");
+                    fetchRandomArtwork();
+                }
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                console.error("Error fetching artwork:", textStatus, errorThrown);
+                
+                // If a 404 error occurs, search again.
+                if (jqXHR.status === 404) {
+                    console.log("404 error encountered. Searching for another artwork...");
+                    fetchRandomArtwork();
+                } else {
+                    alert('Failed to fetch the artwork details. Please try again later.');
+                }
+            });
     }
 
     // get the search button and input elements
