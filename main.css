@@ -1,3 +1,4 @@
+
 :root {
     --bg-color: #f4f4f4;
     --text-color: #000000;
@@ -25,12 +26,15 @@
     --artwork-shadow-color: rgba(255, 255, 255, 0.2);
     --infoBox-text-color: #000000;
     --linkColor: #c695e5;
+    --search-input-color: #fff;
+    --search-input-placeholder-color: #ccc;
 }
 
-#artwork-url {
+#artwork-url, .met-link {
     color: var(--linkColor);
     transition: color 0.3s ease;
 }
+
 
 body {
     margin: 0;
@@ -109,7 +113,6 @@ button#fetch-another {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
     font-size: 16px
 }
 
@@ -121,7 +124,6 @@ button#fetch-another {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
     font-size: 16px
 }
 
@@ -144,6 +146,11 @@ button#fetch-another:hover, #search-btn:hover {
     border-radius: 5px 0 0 5px;
     width: 300px;
     outline: none;
+    color: var(--search-input-color);
+}
+
+#search-input::placeholder {
+    color: var(--search-input-placeholder-color);
 }
 
 #search-btn {
@@ -154,7 +161,6 @@ button#fetch-another:hover, #search-btn:hover {
     color: #fff;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
-    transition: background-color 0.3s;
 }
 
 #search-btn:hover {
@@ -173,7 +179,6 @@ button#fetch-another:hover, #search-btn:hover {
     border-radius: 5px;
     z-index: 1000;
     opacity: 0.7;
-    transition: opacity 0.3s;
 }
 
 #back-to-top-button {
@@ -302,7 +307,6 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
-    transition: 0.3s;
 }
 
 .close:hover,
@@ -331,4 +335,14 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     right: 0;
     position: fixed;
     color: #555;
+}
+
+/* music button theme, black for light mode */
+.fas.fa-music {
+    color: #000;
+}
+
+/* white for dark mode */
+[data-theme='dark'] .fas.fa-music {
+    color: #fff; 
 }

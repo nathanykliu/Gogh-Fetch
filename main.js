@@ -116,8 +116,7 @@ $(function() {
                 mediumAndDimensions.append($('<span>').attr('id', 'artwork-dimensions').text(artwork.dimensions));
                 artworkDiv.append(mediumAndDimensions);
         
-                artworkDiv.append($('<a>').attr('href', artwork.objectURL).text('View on MET'));
-
+                artworkDiv.append($('<a>').attr('href', artwork.objectURL).addClass('met-link').text('View on MET'));
                 // append the artwork to the gallery container
                 $('#gallery').append(artworkDiv);
             }
