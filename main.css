@@ -30,16 +30,20 @@
     --search-input-placeholder-color: #ccc;
 }
 
-#artwork-url, .met-link {
-    color: var(--linkColor);
-}
-
 body {
     margin: 0;
     padding: 0;
     font-family: Georgia, serif, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
+}
+
+button, input, select, textarea {
+    font-family: Georgia, serif, sans-serif;
+}
+
+#artwork-url, .met-link {
+    color: var(--linkColor);
 }
 
 img[alt="logo"] {
@@ -302,6 +306,7 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     cursor: pointer;
 }
 
+/* music icon */
 .icon-button {
     right: 0;
     position: fixed;
@@ -314,13 +319,8 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     padding: 10px;
     padding-right: 157px;
     padding-top: 12px;
-    transition: color 0.3s;
-}
-
-.icon-button:hover {
-    right: 0;
-    position: fixed;
-    color: #555;
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
 }
 
 /* music button theme, black for light mode */
@@ -332,6 +332,7 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 [data-theme='dark'] .fas.fa-music {
     color: #fff; 
 }
+
 
 #infoBox {
     background-color: var(--infoBox-bg-color);
