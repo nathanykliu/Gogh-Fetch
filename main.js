@@ -186,7 +186,7 @@ $(function() {
             document.documentElement.setAttribute("data-theme", "light");
         } else {
             document.documentElement.setAttribute("data-theme", "dark");
-        }
+        } console.log("Theme toggled!");
     });
 
     // modal image viewer logic
