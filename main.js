@@ -1,6 +1,6 @@
 
 
-//wrapping everything in a ready function
+//main function
 $(function() {
 
     //declare global variables
@@ -66,7 +66,7 @@ $(function() {
         }
     });
 
-    //perform search for artwork using API
+    //perform search for artwork using MET API
     function performSearch(searchInput) {
         $('#random-artwork').hide();
         let searchQuery = searchInput.value.trim();
@@ -148,7 +148,7 @@ $(function() {
         infoBox.id = 'infoBox';
         infoBox.innerHTML = `
             <h3>Created by Nathan Liu</h3>
-            <p><a href="https://github.com/nateykliu/Frontend">View this project in Github</a></p>
+            <p><a target = "_blank" href="https://github.com/nateykliu/Frontend">View this project in Github</a></p>
         `;
         document.body.appendChild(infoBox);
     }

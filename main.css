@@ -312,8 +312,6 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     cursor: pointer;
 }
 
-
-
 .icon-button {
     right: 0;
     position: fixed;
