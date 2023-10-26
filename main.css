@@ -73,10 +73,10 @@ img {
 
 #artwork-image {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1), 
-    0 10px 20px rgba(0,0,0,0.2), 
-    0 20px 40px rgba(0,0,0,0.1);
-    margin: 8px;
-    padding: 8px;
+                0 10px 20px rgba(0,0,0,0.2), 
+                0 20px 40px rgba(0,0,0,0.1);
+    margin: 5px;
+    padding: 5px;
     border-radius: 5px;
     background-color: var(--container-bg-color); /* Ensure a solid background for better shadow contrast */
 }
