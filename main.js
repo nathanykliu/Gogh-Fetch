@@ -106,6 +106,10 @@ $(function() {
                 let artistAndDate = $('<p>');
                 artistAndDate.append($('<span>').attr('id', 'artwork-artist').text(artwork.artistDisplayName));
                 artistAndDate.append(', ');
+                if ('artwork-artist' === "") {
+                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text('Unknown Artist'));
+                }
+                
                 artistAndDate.append($('<span>').attr('id', 'artwork-date').text(artwork.objectDate));
                 artworkDiv.append(artistAndDate);
         
