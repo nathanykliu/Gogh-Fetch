@@ -178,4 +178,16 @@ $(function() {
     $('#gallery img, #random-artwork img').show();
     });
 
+    //music button logic
+    const audioPlayer = document.getElementById("audioPlayer");
+    const musicBtn = document.getElementById("musicBtn");
+
+    musicBtn.addEventListener("click", function() {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+    } else {
+        audioPlayer.pause();
+    }
+    });
+
 });
