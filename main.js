@@ -32,22 +32,30 @@ $(function() {
         let detailUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`;
     
         $.get(detailUrl)
-            .done(function(artwork) {
-                if (artwork.primaryImageSmall) {
-                    $('#artwork-image').attr('src', artwork.primaryImageSmall);
-                    $('#artwork-title').text(artwork.title);
-                    $('#artwork-artist').text(artwork.artistDisplayName);
-                    $('#artwork-date').text(artwork.objectDate);
-                    $('#artwork-medium').text(artwork.medium);
-                    $('#artwork-dimensions').text(artwork.dimensions);
-                    $('#artwork-url').attr('href', artwork.objectURL);
-                    
-                    console.log(artwork);
+        .done(function(artwork) {
+            if (artwork.primaryImageSmall) {
+                $('#artwork-image').attr('src', artwork.primaryImageSmall);
+                $('#artwork-title').text(artwork.title);
+        
+                // Check if the artist name is present, if not, use "Unknown Artist"
+                if (artwork.artistDisplayName === "") {
+                    $('#artwork-artist').text('Unknown Artist');
                 } else {
-                    console.log("Artwork without primary image found. Searching again...");
-                    fetchRandomArtwork();
+                    $('#artwork-artist').text(artwork.artistDisplayName);
                 }
-            })
+        
+                $('#artwork-date').text(artwork.objectDate);
+                $('#artwork-medium').text(artwork.medium);
+                $('#artwork-dimensions').text(artwork.dimensions);
+                $('#artwork-url').attr('href', artwork.objectURL);
+                
+                console.log(artwork);
+            } else {
+                console.log("Artwork without primary image found. Searching again...");
+                fetchRandomArtwork();
+            }
+        })
+        
             .fail(function(jqXHR, textStatus, errorThrown) {
                 console.error("Error fetching artwork:", textStatus, errorThrown);
                 
@@ -78,10 +86,10 @@ $(function() {
 
     //perform search for artwork using MET API
     function performSearch(searchInput) {
-        $('#random-artwork').hide();
         let searchQuery = searchInput.value.trim();
 
         if (searchQuery) {
+            $('#random-artwork').hide();
             $.get(`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${searchQuery}`, function(data) {
                 randomArt = data.objectIDs;
                 if (randomArt && randomArt.length > 0) {
@@ -114,12 +122,14 @@ $(function() {
         
                 // add artist and date on the same line
                 let artistAndDate = $('<p>');
-                artistAndDate.append($('<span>').attr('id', 'artwork-artist').text(artwork.artistDisplayName));
-                artistAndDate.append(', ');
-                if ('artwork-artist' === "") {
-                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text('Unknown Artist'));
+
+                if (artwork.artistDisplayName === "") {
+                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text('Unknown Artist, '));
+                } else {
+                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text(artwork.artistDisplayName));
+                    artistAndDate.append(', ');
                 }
-                
+
                 artistAndDate.append($('<span>').attr('id', 'artwork-date').text(artwork.objectDate));
                 artworkDiv.append(artistAndDate);
         
