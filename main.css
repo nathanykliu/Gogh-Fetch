@@ -91,6 +91,13 @@ img {
     background-color: var(--container-bg-color); /* Ensure a solid background for better shadow contrast */
 }
 
+[data-theme='dark'] #artwork-image {
+    box-shadow: 0 1px 3px rgba(255,255,255,0.1),
+                0 10px 20px rgba(255,255,255,0.15),
+                0 20px 40px rgba(255,255,255,0.1);
+}
+
+
 #artwork-date {
     font-style: italic;
 }
