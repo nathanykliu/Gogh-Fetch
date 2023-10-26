@@ -15,7 +15,7 @@ $(function() {
     });
 
     // initial fetch to get artworks
-    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=van_gogh', function(data) {
+    $.get('https://collectionapi.metmuseum.org/public/collection/v1/search?q=vincent_van_gogh_self_portrait_with_a_straw_hat', function(data) {
         randomArt = data.objectIDs;
         fetchRandomArtwork();
     });
