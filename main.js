@@ -1,6 +1,5 @@
 
 
-
 //wrapping everything in a ready function
 $(function() {
 
@@ -164,19 +163,19 @@ $(function() {
         }
     });
 
-    //modal image viewer logic
+    // modal image viewer logic
     let modalImage = document.getElementById("modal-image");
-    let captionText = document.getElementById("modal-caption");
     $('#gallery, #random-artwork').on('click', 'img', function() {
+    $(this).show(); // toggle switch to hide background when modal is clicked, I can't decide yet...
     modal.style.display = "block";
     let newSrc = $(this).attr('src').replace("PrimaryImageSmall", "PrimaryImage");
     modalImage.src = newSrc;
-    
     });
 
-    // close the modal when the "x" is clicked
+    // close the modal when the user clicks anywhere
     $('#modal').on("click", function() {
-        $(this).css('display', 'none');
+    $(this).css('display', 'none');
+    $('#gallery img, #random-artwork img').show();
     });
 
 });
