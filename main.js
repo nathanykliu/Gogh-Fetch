@@ -50,7 +50,7 @@ $(function() {
                 $('#artwork-url').attr('href', artwork.objectURL);
                 
                 console.log(artwork);
-                console.log("Art with image found!")
+                console.log("Artwork with primary image found!")
             } else {
                 console.log("Artwork without primary image found. Searching again...");
                 fetchRandomArtwork();
@@ -73,7 +73,7 @@ $(function() {
     // get the search button and input elements
     const searchBtn = document.getElementById('search-btn');
     const searchInput = document.getElementById('search-input');
-
+    
     //adding event listeners for clicking and pressing enter on the search button
     searchBtn.addEventListener('click', function() {
         performSearch(searchInput);
@@ -101,8 +101,13 @@ $(function() {
                     for (let i = 0; i < Math.min(20, randomArt.length); i++) {
                         fetchArtworkGalleryDetails(randomArt[i]);
                     }
+    
+                    // Show the button only after fetching the gallery details.
+                    $('#show-random').show();
+    
                 } else {
                     alert('No results found for your search query.');
+                    $('#show-random').hide();
                 }
             });
         } else {
@@ -121,6 +126,7 @@ $(function() {
                 let artworkDiv = $('<div>').addClass('artwork');
                 artworkDiv.append($('<img>').attr('src', artwork.primaryImageSmall));
                 artworkDiv.append($('<h2>').text(artwork.title));
+                $('#show-random').show();
         
                 // add artist and date on the same line
                 let artistAndDate = $('<p>');
@@ -162,10 +168,10 @@ $(function() {
         }
     });
 
-    //refreshing page on logo click
-    $('img[alt="logo"]').on('click', function() {
+    $('#logo').on('click', function() {
         location.reload();
     });
+    
 
     //info box at bottom right
     function createInfoBox() {
