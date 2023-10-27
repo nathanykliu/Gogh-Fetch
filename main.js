@@ -60,7 +60,7 @@ $(function() {
             .fail(function(jqXHR, textStatus, errorThrown) {
                 console.error("Error fetching artwork:", textStatus, errorThrown);
                 
-                // If a 404 error occurs, search again.
+                // if a 404 error occurs, console.log and search again
                 if (jqXHR.status === 404) {
                     console.log("404 error encountered. Searching for another artwork...");
                     fetchRandomArtwork();
@@ -102,7 +102,7 @@ $(function() {
                         fetchArtworkGalleryDetails(randomArt[i]);
                     }
     
-                    // Show the button only after fetching the gallery details.
+                    // show the button only after fetching the gallery details
                     $('#show-random').show();
     
                 } else {
@@ -155,13 +155,13 @@ $(function() {
         });
     }
 
-    //back to top button at bottom left
+    //go to top button at bottom left
     $backToTopButton.on('click', function() {
-        $('html, body').animate({scrollTop: 0}, 750);  // 10000ms animation speed
+        $('html, body').animate({scrollTop: 0}, 750);  // animation speed back to the top
     });
 
     $(window).on('scroll', function() {
-        if ($(window).scrollTop() > 200) {  // Show button after scrolling 200px
+        if ($(window).scrollTop() > 200) {  // show "go to top" button after scrolling 200px
             $backToTopButton.fadeIn();
         } else {
             $backToTopButton.fadeOut();
