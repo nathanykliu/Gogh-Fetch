@@ -60,7 +60,7 @@ $(function() {
             .fail(function(jqXHR, textStatus, errorThrown) {
                 console.error("Error fetching artwork:", textStatus, errorThrown);
                 
-                // if a 404 error occurs, console.log and search again
+                // 404 ERROR HANDLING/ OTHER ERROR HANDLING
                 if (jqXHR.status === 404) {
                     console.log("404 error encountered. Searching for another artwork...");
                     fetchRandomArtwork();
@@ -74,7 +74,7 @@ $(function() {
     const searchBtn = document.getElementById('search-btn');
     const searchInput = document.getElementById('search-input');
     
-    //adding event listeners for clicking and pressing enter on the search button
+    //adding event listeners for clicking (and pressing enter) on the search button
     searchBtn.addEventListener('click', function() {
         performSearch(searchInput);
     });
