@@ -43,8 +43,8 @@ $(function() {
                 } else {
                     $('#artwork-artist').text(artwork.artistDisplayName + ', ');
                 }
-                
-        
+
+                //append the rest of the artwork details
                 $('#artwork-date').text(artwork.objectDate);
                 $('#artwork-medium').text(artwork.medium + ', ');
                 $('#artwork-dimensions').text(artwork.dimensions);
@@ -132,13 +132,20 @@ $(function() {
                 // add artist and date on the same line
                 let artistAndDate = $('<p>');
 
+                //unknown artist handling
                 if (artwork.artistDisplayName === "") {
                     artistAndDate.append($('<span>').attr('id', 'artwork-artist').text('Unknown Artist'));
                 } else {
                     artistAndDate.append($('<span>').attr('id', 'artwork-artist').text(artwork.artistDisplayName + ', '));
                 }
 
+                //unknown date handling
+                if (artwork.objectDate === "") {
+                    artistAndDate.append($('<span>').attr('id', 'artwork-date').text('Unknown Date'));
+                } else {
                 artistAndDate.append($('<span>').attr('id', 'artwork-date').text(artwork.objectDate));
+                }
+
                 artworkDiv.append(artistAndDate);
         
                 // add medium and dimensions on another line
@@ -222,4 +229,37 @@ $(function() {
     }
     });
 
+    //extra buttons and submenu logic
+    // function showSubmenu(buttonId, options) {
+    //     // Create a new submenu div if it doesn't already exist
+    //     if($('#' + buttonId + '-menu').length === 0) {
+    //         let $submenu = $('<div>').attr('id', buttonId + '-menu').addClass('submenu');
+
+    //         // Add options to the submenu
+    //         options.forEach(function(option) {
+    //             let $option = $('<button>').addClass('submenu-option').text(option);
+    //             $option.on('click', function() {
+    //                 performSearch(option);
+    //             });
+    //             $submenu.append($option);
+    //         });
+
+    //         // Append the submenu to the button's parent container
+    //         $('#' + buttonId).after($submenu);
+    //     }
+    // }
+
+    // // Create submenus for each button on page load
+    // showSubmenu('choose-artist', ['Van Gogh', 'Monet', 'Picasso']);
+    // showSubmenu('choose-medium', ['Paintings', 'Sculptures', 'Drawings']);
+    // showSubmenu('choose-era', ['Renaissance', 'Baroque', 'Modern']);
+    // showSubmenu('choose-region', ['European', 'Asian', 'African']);
+
+    // // Function to perform a search based on the option selected
+    // function performSearch(searchTerm) {
+    //     // Implement your search functionality here
+    //     console.log("Searching for:", searchTerm);
+    // }
+
 });
+
