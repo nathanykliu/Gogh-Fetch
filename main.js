@@ -39,13 +39,14 @@ $(function() {
         
                 // check if the artist name is present, if not, use "Unknown Artist"
                 if (artwork.artistDisplayName === "") {
-                    $('#artwork-artist').text('Unknown Artist');
+                    $('#artwork-artist').text('Unknown Artist, ' + artwork.objectDate);
                 } else {
-                    $('#artwork-artist').text(artwork.artistDisplayName);
+                    $('#artwork-artist').text(artwork.artistDisplayName + ', ');
                 }
+                
         
                 $('#artwork-date').text(artwork.objectDate);
-                $('#artwork-medium').text(artwork.medium);
+                $('#artwork-medium').text(artwork.medium + ', ');
                 $('#artwork-dimensions').text(artwork.dimensions);
                 $('#artwork-url').attr('href', artwork.objectURL);
                 
@@ -132,10 +133,9 @@ $(function() {
                 let artistAndDate = $('<p>');
 
                 if (artwork.artistDisplayName === "") {
-                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text('Unknown Artist, '));
+                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text('Unknown Artist'));
                 } else {
-                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text(artwork.artistDisplayName));
-                    artistAndDate.append(', ');
+                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text(artwork.artistDisplayName + ', '));
                 }
 
                 artistAndDate.append($('<span>').attr('id', 'artwork-date').text(artwork.objectDate));
@@ -144,7 +144,7 @@ $(function() {
                 // add medium and dimensions on another line
                 let mediumAndDimensions = $('<p>');
                 mediumAndDimensions.append($('<span>').attr('id', 'artwork-medium').text(artwork.medium));
-                mediumAndDimensions.append(', ');
+
                 mediumAndDimensions.append($('<span>').attr('id', 'artwork-dimensions').text(artwork.dimensions));
                 artworkDiv.append(mediumAndDimensions);
         
