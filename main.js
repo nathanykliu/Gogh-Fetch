@@ -8,6 +8,28 @@ $(function() {
     let $backToTopButton = $('#back-to-top');
     let modal = document.getElementById("modal");
 
+    //mobile modal
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    };
+
+    if (isMobileDevice()) {
+        var mobileModal = document.getElementById("mobileModal");
+        var span = document.getElementsByClassName("close-mobile-modal")[0];
+
+        mobileModal.style.display = "block";
+
+        span.onclick = function() {
+            mobileModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == mobileModal) {
+                mobileModal.style.display = "none";
+            }
+        }
+    }
+
     //fetch me another button functionality
     $('#fetch-another').on("click", function() {
         let $this = $(this);
