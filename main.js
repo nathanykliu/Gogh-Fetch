@@ -37,15 +37,21 @@ $(function() {
                 $('#artwork-image').attr('src', artwork.primaryImageSmall);
                 $('#artwork-title').text(artwork.title);
         
-                // check if the artist name is present, if not, use "Unknown Artist"
+                // unknown artist handling
                 if (artwork.artistDisplayName === "") {
                     $('#artwork-artist').text('Unknown Artist, ' + artwork.objectDate);
                 } else {
                     $('#artwork-artist').text(artwork.artistDisplayName + ', ');
                 }
+                
+                // unknown date handling
+                if (artwork.objectDate === "") {
+                    $('#artwork-date').text('Unknown Date');
+                } else {
+                    $('#artwork-date').text(artwork.objectDate);
+                }
 
                 //append the rest of the artwork details
-                $('#artwork-date').text(artwork.objectDate);
                 $('#artwork-medium').text(artwork.medium + ', ');
                 $('#artwork-dimensions').text(artwork.dimensions);
                 $('#artwork-url').attr('href', artwork.objectURL);
