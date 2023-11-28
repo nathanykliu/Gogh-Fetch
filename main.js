@@ -1,5 +1,4 @@
 
-
 //main function
 $(function() {
 
@@ -11,7 +10,17 @@ $(function() {
 
     //fetch me another button functionality
     $('#fetch-another').on("click", function() {
-        fetchRandomArtwork();
+        let $this = $(this);
+    
+        $this.text('Searching...');
+        fetchRandomArtwork()
+            .then(function() {
+                // Change the button text back to 'Fetch Me Another!' when the promise is resolved
+                $this.text('Fetch Me Another!');
+            })
+            .catch(function(error) {
+                console.error("Error in fetchRandomArtwork:", error);
+            });
     });
 
     // initial fetch to get artworks
@@ -22,16 +31,26 @@ $(function() {
 
     //initial fetch function (called above)
     function fetchRandomArtwork() {
-        let randomIndex = Math.floor(Math.random() * randomArt.length);
-        let randomObjectID = randomArt[randomIndex];
-        fetchRandomArtworkDetails(randomObjectID);
-        $('#random-artwork').show();
+        return new Promise((resolve, reject) => {
+
+            let randomIndex = Math.floor(Math.random() * randomArt.length);
+            let randomObjectID = randomArt[randomIndex];
+    
+            fetchRandomArtworkDetails(randomObjectID)
+                .then((data) => {
+                    resolve(data);
+                    $('#random-artwork').show();
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
     }
 
     function fetchRandomArtworkDetails(objectID) {
         let detailUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`;
     
-        $.get(detailUrl)
+        return $.get(detailUrl)
         .done(function(artwork) {
             if (artwork.primaryImageSmall) {
                 $('#artwork-image').attr('src', artwork.primaryImageSmall);
@@ -43,7 +62,7 @@ $(function() {
                 } else {
                     $('#artwork-artist').text(artwork.artistDisplayName + ', ');
                 }
-                
+
                 // unknown date handling
                 if (artwork.objectDate === "") {
                     $('#artwork-date').text('Unknown Date');
