@@ -257,8 +257,8 @@ $(function() {
     modalImage.src = newSrc;
 
     currentHighResSrc = $(this).attr('src').replace("/web-large/", "/original/");
-    currentTitle = $(this).data('title');   // retrieve title from data-title attribute
-});
+    currentTitle = $(this).data('artwork-title' +' ' + 'artwork-date');   // retrieve title from data-title attribute
+    });
         
     $('#download-button').on('click', function(e) {
         e.preventDefault(); // prevent the default anchor behavior
