@@ -356,7 +356,7 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 
 .mobile-modal-content {
     background-color: #fefefe;
-    margin: auto;
+    margin-top: 100px;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -364,7 +364,7 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .mobile-modal-button {
