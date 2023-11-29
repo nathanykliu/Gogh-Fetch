@@ -256,9 +256,13 @@ $(function() {
     console.log("High Resolution Source: " + newSrc); // check high res img source
     modalImage.src = newSrc;
 
-    currentHighResSrc = $(this).attr('src').replace("/web-large/", "/original/");
-    currentTitle = $(this).data('artwork-title' +' ' + 'artwork-date');   // retrieve title and artist
-    console.log(currentTitle)
+    //retrieve title and artist
+    let currentHighResSrc = ''
+    let currentTitle = ''
+    let title = $(this).data('artwork-title');
+    let artist = $(this).data('artwork-artist');
+    currentHighResSrc = newSrc;
+    currentTitle = `${title} - ${artist}`
     });
         
     $('#download-button').on('click', function(e) {
