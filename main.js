@@ -257,11 +257,11 @@ $(function() {
     modalImage.src = newSrc;
 
     currentHighResSrc = $(this).attr('src').replace("/web-large/", "/original/");
-    currentTitle = $(this).data('title'); // Retrieving the title
+    currentTitle = $(this).data('title');   // retrieve title from data-title attribute
 });
         
     $('#download-button').on('click', function(e) {
-        e.preventDefault(); // Prevent the default anchor behavior
+        e.preventDefault(); // prevent the default anchor behavior
 
         fetch(`/api/image-proxy?url=${encodeURIComponent(currentHighResSrc)}`)
             .then(response => response.blob())
@@ -277,7 +277,6 @@ $(function() {
             })
             .catch(error => {
                 console.error(error);
-                // Optionally, display an error message to the user
             });
         });
   
