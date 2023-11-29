@@ -257,10 +257,10 @@ $(function() {
     modalImage.src = newSrc;
 
     //retrieve title and artist for download
-    let downloadTitle = $('#artwork-title').text();
-    let downloadArtist = $('#artwork-artist').text();
+    let downloadTitle = $('#artwork-title').text().trim();
+    let downloadArtist = $('#artwork-artist').text().trim();
     currentHighResSrc = newSrc;
-    currentTitle = `${downloadTitle} - ${downloadArtist}`;
+    currentTitle = `${downloadTitle} - ${downloadArtist}`.trim();
     });
     
     $('#download-button').on('click', function(e) {
