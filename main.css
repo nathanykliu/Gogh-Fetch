@@ -125,7 +125,7 @@ img {
     color: #888;
 }
 
-button#fetch-another {
+button#fetch-another{
     display: block;
     margin: 20px auto 0;
     padding: 10px 20px;
@@ -135,6 +135,18 @@ button#fetch-another {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px
+}
+
+#download-button {
+    display: block;
+    margin: 20px auto 30px;
+    padding: 10px 20px;
+    background-color: var(--button-bg-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 19px
 }
 
 #search-btn {
@@ -429,8 +441,8 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 #infoBox {
     background-color: var(--infoBox-bg-color);
     position: fixed;   
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px;
+    right: 15px;
     margin: 5px;
     height: 60px;
     width: 150px;

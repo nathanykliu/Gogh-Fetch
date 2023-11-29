@@ -250,12 +250,31 @@ $(function() {
     // modal image viewer logic
     let modalImage = document.getElementById("modal-image");
     $('#gallery, #random-artwork').on('click', 'img', function() {
-    $(this).show(); // toggle switch to hide background when modal is clicked, I can't decide yet...
+ 
     modal.style.display = "block";
-    console.log("Original src: " + $(this).attr('src')); // for debugging
     let newSrc = $(this).attr('src').replace("/web-large/", "/original/");
-    console.log("New src: " + newSrc); // Check the new source
+    console.log("High Resolution Source: " + newSrc); // check high res img source
     modalImage.src = newSrc;
+
+    let title = $(this).data('title'); // or your method of retrieving the title
+
+        $('#download-button').on('click', function(e) {
+            e.preventDefault(); // Prevent the default anchor behavior
+        
+            fetch(newSrc)
+                .then(response => response.blob())
+                .then(blob => {
+                    let blobUrl = window.URL.createObjectURL(blob);
+                    let tempLink = document.createElement('a');
+                    tempLink.href = blobUrl;
+                    tempLink.setAttribute('download', `${title}.jpg`.replace(/[^a-zA-Z0-9. -]/g, '_'));
+                    document.body.appendChild(tempLink);
+                    tempLink.click();
+                    document.body.removeChild(tempLink);
+                    window.URL.revokeObjectURL(blobUrl); // Clean up
+                })
+                .catch(console.error); // Handle any errors
+        });
     });
 
     // close the modal when the user clicks anywhere
