@@ -9,6 +9,13 @@ module.exports = async (req, res) => {
 
     try {
         const response = await fetch(imageUrl);
+
+        if (!response.ok) {
+            console.error('Error fetching image:', response.status, response.statusText);
+            res.status(500).send('Error fetching image');
+            return;
+        }
+
         const imageBuffer = await response.buffer();
 
         let contentType = 'image/jpg'; // default to jpg
