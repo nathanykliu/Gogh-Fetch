@@ -261,7 +261,7 @@ $(function() {
         $('#download-button').on('click', function(e) {
             e.preventDefault(); // Prevent the default anchor behavior
         
-            fetch(newSrc)
+            fetch(`/api/image-proxy?url=${encodeURIComponent(newSrc)}`)
                 .then(response => response.blob())
                 .then(blob => {
                     let blobUrl = window.URL.createObjectURL(blob);
