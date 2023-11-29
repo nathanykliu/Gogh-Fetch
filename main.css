@@ -30,6 +30,12 @@
     --search-input-placeholder-color: #ccc;
 }
 
+/* fading effect for theme toggle */
+body, button, input, select, textarea, .artwork-container, #artwork-url, .met-link, .modal, .mobile-modal-content {
+    transition: background-color 1.25s ease, color 1.25s ease, border-color 1.25s ease, box-shadow 1.25s ease;
+    font-family: Georgia, serif, sans-serif;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -38,9 +44,6 @@ body {
     color: var(--text-color);
 }
 
-button, input, select, textarea {
-    font-family: Georgia, serif, sans-serif;
-}
 
 #artwork-url, .met-link {
     color: var(--linkColor);
@@ -86,7 +89,7 @@ img {
     margin: 10px;
     padding: 20px;
     border-radius: 5px;
-    background-color: var(--container-bg-color); /* Ensure a solid background for better shadow contrast */
+    background-color: var(--container-bg-color);
 }
 
 #artwork-image {
@@ -97,7 +100,7 @@ img {
     padding: 1px;
     background-clip: #ffffff;
     border-radius: 5px;
-    background-color: var(--container-bg-color); /* Ensure a solid background for better shadow contrast */
+    background-color: var(--container-bg-color);
 }
 
 [data-theme='dark'] #artwork-image {
@@ -106,7 +109,6 @@ img {
                 0 10px 20px rgba(255,255,255,0.15),
                 0 20px 40px rgba(255,255,255,0.1);
 }
-
 
 #artwork-date {
     font-style: italic;
@@ -327,7 +329,7 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     padding-right: 157px;
     padding-top: 15px;
     transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* music button theme, black for light mode */
@@ -423,66 +425,3 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     margin-top: 0;
     margin-inline: 0; 
 }
-
-/* .search-options {
-    position: relative;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.search-options button {
-    background-color: #e0e0e0;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.search-options button:hover,
-.search-options button:active,
-.search-options button:focus {
-    background-color: #d5d5d5;
-    color: #222;
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-
-.submenu,
-.search-options .submenu {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    z-index: 10;
-    bottom: 100%;
-}
-
-.search-options button:hover + .submenu,
-.search-options .submenu:hover {
-    display: block;
-}
-
-.submenu-option {
-    display: block;
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #f9f9f9;
-    color: #333;
-    text-align: left;
-    width: 100%;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.submenu-option:hover {
-    background-color: #e0e0e0;
-} */
