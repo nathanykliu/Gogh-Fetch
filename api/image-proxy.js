@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-module.exports = async (req, res) => {
+export default async function (req, res) {
     const imageUrl = req.query.url;
     if (!imageUrl) {
         res.status(400).send('No image URL provided');
@@ -9,14 +9,11 @@ module.exports = async (req, res) => {
 
     try {
         const response = await fetch(imageUrl);
-
         if (!response.ok) {
-            console.error('Error fetching image:', response.status, response.statusText);
-            res.status(500).send('Error fetching image');
-            return;
+            throw new Error(`Failed to fetch image: ${response.statusText}`);
         }
-
-        const imageBuffer = await response.buffer();
+        const arrayBuffer = await response.arrayBuffer();
+        const imageBuffer = Buffer.from(arrayBuffer);
 
         let contentType = 'image/jpg'; // default to jpg
         if (imageUrl.endsWith('.png')) {
@@ -28,7 +25,8 @@ module.exports = async (req, res) => {
         res.setHeader('Content-Type', contentType);
         res.send(imageBuffer);
     } catch (error) {
-        console.error('Error fetching image:', error);
+        console.error(`Error fetching ${imageUrl}:`, error);
         res.status(500).send('Error fetching image');
     }
-};
+}
+
