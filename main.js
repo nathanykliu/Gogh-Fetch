@@ -249,8 +249,6 @@ $(function() {
 
     // modal image viewer logic
     let modalImage = document.getElementById("modal-image");
-    let currentHighResSrc = ''
-    let currentTitle = ''
 
     $('#gallery, #random-artwork').on('click', 'img', function() {
     modal.style.display = "block";
@@ -259,12 +257,12 @@ $(function() {
     modalImage.src = newSrc;
 
     //retrieve title and artist for download
-    let title = $(this).data('artwork-title');
-    let artist = $(this).data('artwork-artist');
+    let downloadTitle = $('#artwork-title').text();
+    let downloadArtist = $('#artwork-artist').text();
     currentHighResSrc = newSrc;
-    currentTitle = `${title} - ${artist}`
+    currentTitle = `${downloadTitle} - ${downloadArtist}`;
     });
-        
+    
     $('#download-button').on('click', function(e) {
         e.preventDefault(); // prevent the default anchor behavior
 
@@ -284,7 +282,6 @@ $(function() {
                 console.error(error);
             });
         });
-  
 
     // close the modal when the user clicks anywhere
     $('#modal').on("click", function() {
