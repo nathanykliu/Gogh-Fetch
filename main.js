@@ -13,7 +13,6 @@ $(function() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     };
 
-
     if (isMobileDevice()) {
         var mobileModal = document.getElementById("mobileModal");
         var closeMobileModal = document.getElementsByClassName("close-mobile-modal")[0];
