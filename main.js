@@ -92,6 +92,7 @@ $(function() {
                 $('#artwork-medium').text(artwork.medium + ', ');
                 $('#artwork-dimensions').text(artwork.dimensions);
                 $('#artwork-url').attr('href', artwork.objectURL);
+
                 
                 console.log(artwork);
                 console.log("Artwork with primary image found!")
@@ -104,7 +105,7 @@ $(function() {
             .fail(function(jqXHR, textStatus, errorThrown) {
                 console.error("Error fetching artwork:", textStatus, errorThrown);
                 
-                // 404 ERROR HANDLING/ OTHER ERROR HANDLING
+                // error handling
                 if (jqXHR.status === 404) {
                     console.log("404 error encountered. Searching for another artwork...");
                     fetchRandomArtwork();
@@ -142,7 +143,7 @@ $(function() {
                     $('#gallery').empty();
                     
                     // loop through the first 20 results or as many as there are
-                    for (let i = 0; i < Math.min(20, randomArt.length); i++) {
+                    for (let i = 0; i < Math.min(50, randomArt.length); i++) {
                         fetchArtworkGalleryDetails(randomArt[i]);
                     }
     
