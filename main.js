@@ -265,13 +265,14 @@ $(function() {
         currentTitle += ` - ${downloadArtist}`;
     }
 
-    // Replace non-allowed characters with underscores and trim any trailing underscores
+    // replace non-allowed characters with underscores and then trim underscores
     currentTitle = currentTitle.replace(/[^a-zA-Z0-9. -]/g, '_').replace(/_+$/, '');
 
     });
     
     $('#download-button').on('click', function(e) {
         e.preventDefault(); // prevent the default anchor behavior
+        e.stopPropagation(); // prevent the click event from bubbling up to the modal
 
         fetch(`/api/image-proxy?url=${encodeURIComponent(currentHighResSrc)}`)
             .then(response => response.blob())
