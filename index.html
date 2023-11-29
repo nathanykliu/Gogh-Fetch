@@ -42,14 +42,14 @@
 
     <!-- logo -->
     <img id ="logo" src = "images/blacklogo.png" alt = "logo" width = "100" height = "100">
-
+    
     <!-- artwork for container -->
     <div class="artwork-container">
         <input type="text" id="search-input" placeholder="Search for a specific artist or painting">
         <button id="search-btn">Search</button><br><br>
         <!-- gallery div-->
         <div id="gallery">
-   
+    
         </div>
 
             <div id="random-artwork">
@@ -85,8 +85,12 @@
 
     <!-- modal -->
     <div id="modal" class="modal">
-        <img class="modal-content" id="modal-image">
-        <div id="modal-caption"></div>
+        <!-- Container for the image -->
+        <div class="modal-content">
+            <!-- Image Element -->
+            <img id="modal-image">
+            <div id="modal-caption"></div>
+        </div>
     </div>
     <!-- MAIN SCRIPT HERE -->
     <script src="main.js"></script>

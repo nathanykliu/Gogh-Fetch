@@ -246,12 +246,15 @@ $(function() {
         } console.log("Theme toggled!");
     });
 
+
     // modal image viewer logic
     let modalImage = document.getElementById("modal-image");
     $('#gallery, #random-artwork').on('click', 'img', function() {
     $(this).show(); // toggle switch to hide background when modal is clicked, I can't decide yet...
     modal.style.display = "block";
-    let newSrc = $(this).attr('src').replace("PrimaryImageSmall", "PrimaryImage");
+    console.log("Original src: " + $(this).attr('src')); // for debugging
+    let newSrc = $(this).attr('src').replace("/web-large/", "/original/");
+    console.log("New src: " + newSrc); // Check the new source
     modalImage.src = newSrc;
     });
 
@@ -260,6 +263,17 @@ $(function() {
     $(this).css('display', 'none');
     $('#gallery img, #random-artwork img').show();
     });
+
+     // preload high res images
+     function preloadHighRes() {
+        $('#gallery img, #random-artwork img').each(function() {
+            const highResSrc = $(this).attr('src').replace("/web-large/", "/original/");
+            const img = new Image();
+            img.src = highResSrc;
+        });
+    }
+
+    preloadHighRes();
 
     //music button logic
     const audioPlayer = document.getElementById("audioPlayer");
