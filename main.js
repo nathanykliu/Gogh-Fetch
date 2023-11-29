@@ -260,7 +260,14 @@ $(function() {
     let downloadTitle = $('#artwork-title').text().trim();
     let downloadArtist = $('#artwork-artist').text().trim();
     currentHighResSrc = newSrc;
-    currentTitle = `${downloadTitle} - ${downloadArtist}`.trim();
+    currentTitle = downloadTitle;
+    if (downloadArtist) {
+        currentTitle += ` - ${downloadArtist}`;
+    }
+
+    // Replace non-allowed characters with underscores and trim any trailing underscores
+    currentTitle = currentTitle.replace(/[^a-zA-Z0-9. -]/g, '_').replace(/_+$/, '');
+
     });
     
     $('#download-button').on('click', function(e) {
