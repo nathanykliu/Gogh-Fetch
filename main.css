@@ -356,14 +356,15 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 
 .mobile-modal-content {
     background-color: #fefefe;
-    margin-top: 100px;
-    padding: 20px;
+    margin-top: 10%;
+    padding: 30px;
     border: 1px solid #888;
-    width: 80%;
+    width: 60%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 10px;
     justify-content: center;
 }
 
