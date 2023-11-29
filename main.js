@@ -256,26 +256,31 @@ $(function() {
     console.log("High Resolution Source: " + newSrc); // check high res img source
     modalImage.src = newSrc;
 
-    let title = $(this).data('title'); // or your method of retrieving the title
-
-        $('#download-button').on('click', function(e) {
-            e.preventDefault(); // Prevent the default anchor behavior
+    currentHighResSrc = $(this).attr('src').replace("/web-large/", "/original/");
+    currentTitle = $(this).data('title'); // Retrieving the title
+});
         
-            fetch(`/api/image-proxy?url=${encodeURIComponent(newSrc)}`)
-                .then(response => response.blob())
-                .then(blob => {
-                    let blobUrl = window.URL.createObjectURL(blob);
-                    let tempLink = document.createElement('a');
-                    tempLink.href = blobUrl;
-                    tempLink.setAttribute('download', `${title}.jpg`.replace(/[^a-zA-Z0-9. -]/g, '_'));
-                    document.body.appendChild(tempLink);
-                    tempLink.click();
-                    document.body.removeChild(tempLink);
-                    window.URL.revokeObjectURL(blobUrl); // Clean up
-                })
-                .catch(console.error); // Handle any errors
+    $('#download-button').on('click', function(e) {
+        e.preventDefault(); // Prevent the default anchor behavior
+
+        fetch(`/api/image-proxy?url=${encodeURIComponent(currentHighResSrc)}`)
+            .then(response => response.blob())
+            .then(blob => {
+                let blobUrl = window.URL.createObjectURL(blob);
+                let tempLink = document.createElement('a');
+                tempLink.href = blobUrl;
+                tempLink.setAttribute('download', `${currentTitle}.jpg`.replace(/[^a-zA-Z0-9. -]/g, '_'));
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                document.body.removeChild(tempLink);
+                window.URL.revokeObjectURL(blobUrl);
+            })
+            .catch(error => {
+                console.error(error);
+                // Optionally, display an error message to the user
+            });
         });
-    });
+  
 
     // close the modal when the user clicks anywhere
     $('#modal').on("click", function() {
