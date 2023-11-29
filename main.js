@@ -249,16 +249,16 @@ $(function() {
 
     // modal image viewer logic
     let modalImage = document.getElementById("modal-image");
+    let currentHighResSrc = ''
+    let currentTitle = ''
+
     $('#gallery, #random-artwork').on('click', 'img', function() {
- 
     modal.style.display = "block";
     let newSrc = $(this).attr('src').replace("/web-large/", "/original/");
     console.log("High Resolution Source: " + newSrc); // check high res img source
     modalImage.src = newSrc;
 
-    //retrieve title and artist
-    let currentHighResSrc = ''
-    let currentTitle = ''
+    //retrieve title and artist for download
     let title = $(this).data('artwork-title');
     let artist = $(this).data('artwork-artist');
     currentHighResSrc = newSrc;
