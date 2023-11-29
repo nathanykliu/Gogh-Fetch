@@ -361,6 +361,10 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     border: 1px solid #888;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .mobile-modal-button {
@@ -370,17 +374,18 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin-top: 20px;
     cursor: pointer;
     border-radius: 5px;
 }
 
+
 .close-mobile-modal {
     color: #fff;
     float: right;
-    font-size: 28px;
+    font-size: 16px;
     font-weight: bold;
 }
 
