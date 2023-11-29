@@ -11,9 +11,10 @@ module.exports = async (req, res) => {
         const response = await fetch(imageUrl);
         const imageBuffer = await response.buffer();
 
-        res.setHeader('Content-Type', 'image/jpeg'); // Set the appropriate content type
+        res.setHeader('Content-Type', 'image/jpeg'); // Adjust as needed
         res.send(imageBuffer);
     } catch (error) {
+        console.error('Error fetching image:', error);
         res.status(500).send('Error fetching image');
     }
 };
