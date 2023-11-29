@@ -10,23 +10,20 @@ $(function() {
 
     //mobile modal
     function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     };
+
 
     if (isMobileDevice()) {
         var mobileModal = document.getElementById("mobileModal");
-        var span = document.getElementsByClassName("close-mobile-modal")[0];
+        var closeMobileModal = document.getElementsByClassName("close-mobile-modal")[0];
 
         mobileModal.style.display = "block";
-
-        span.onclick = function() {
+    
+        closeMobileModal.onclick = function(event) {
+            event.stopPropagation();
+            closeMobileModal.style.display = "none";
             mobileModal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == mobileModal) {
-                mobileModal.style.display = "none";
-            }
         }
     }
 

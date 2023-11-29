@@ -350,18 +350,35 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     height: 100%;
     overflow: auto; 
     background-color: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
 }
 
 .mobile-modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.mobile-modal-button {
+    background-color: #000;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .close-mobile-modal {
-    color: #aaa;
+    color: #fff;
     float: right;
     font-size: 28px;
     font-weight: bold;
