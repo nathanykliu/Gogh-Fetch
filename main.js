@@ -305,7 +305,6 @@ $(function() {
 
     // close the modal when the user clicks anywhere
     $('#modal').on("click", function() {
-        stopPropagation();
     $(this).css('display', 'none');
     $('#gallery img, #random-artwork img').show();
     });
