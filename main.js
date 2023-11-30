@@ -277,6 +277,7 @@ $(function() {
 
     setupDownloadButton();
 
+    // download logic
     $('#gallery, #random-artwork').on('click', 'img', function() {
         modal.style.display = "block";
         let newSrc = $(this).attr('src').replace("/web-large/", "/original/");
@@ -287,7 +288,7 @@ $(function() {
         let downloadTitle = parentDiv.find('h2').text().trim();
         let downloadArtist = parentDiv.find('p').first().text().trim();
     
-        // Check if the click is from the random artwork section
+        // check if the click is from the random artwork section
         if ($(this).closest('#random-artwork').length) {
             downloadTitle = $('#artwork-title').text().trim();
             downloadArtist = $('#artwork-artist').text().trim();
