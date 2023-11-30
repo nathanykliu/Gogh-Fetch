@@ -20,8 +20,12 @@ export default async function (req, res) {
             contentType = 'image/png';
         } else if (imageUrl.endsWith('.gif')) {
             contentType = 'image/gif';
-        }
 
+        } else if (imageUrl.endsWith('.webp')) {
+            contentType = 'image/webp';
+        } else if (imageUrl.endsWith('.jpeg')) {
+            contentType = 'image/jpeg';
+        }
         res.setHeader('Content-Type', contentType);
         res.send(imageBuffer);
     } catch (error) {
