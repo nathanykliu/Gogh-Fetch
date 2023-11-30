@@ -251,23 +251,36 @@ $(function() {
     let modalImage = document.getElementById("modal-image");
 
     $('#gallery, #random-artwork').on('click', 'img', function() {
-    modal.style.display = "block";
-    let newSrc = $(this).attr('src').replace("/web-large/", "/original/");
-    console.log("High Resolution Source: " + newSrc); // check high res img source
-    modalImage.src = newSrc;
-
-    //retrieve title and artist for download
-    let downloadTitle = $('#artwork-title').text().trim();
-    let downloadArtist = $('#artwork-artist').text().trim();
-    currentHighResSrc = newSrc;
-    currentTitle = downloadTitle;
-    if (downloadArtist) {
-        currentTitle += ` - ${downloadArtist}`;
-    }
-
-    // delete non-allowed characters 
-    currentTitle = currentTitle.replace(/[^a-zA-Z0-9 .\-,)(]/g, '');
-
+        modal.style.display = "block";
+        let newSrc = $(this).attr('src').replace("/web-large/", "/original/");
+        modalImage.src = newSrc;
+        currentHighResSrc = newSrc;
+    
+        // Identify the context of the clicked image
+        let parentSection = $(this).closest('div'); // Get the closest parent div of the clicked image
+    
+        // Initialize downloadTitle and downloadArtist
+        let downloadTitle, downloadArtist;
+    
+        if (parentSection.is('#random-artwork')) {
+            // Fetch from random artwork section
+            downloadTitle = $('#artwork-title').text().trim();
+            downloadArtist = $('#artwork-artist').text().trim();
+        } else if (parentSection.is('#gallery')) {
+            // Fetch from the gallery section
+            // Assuming each artwork div has a title and artist element
+            downloadTitle = $(this).siblings('h2').text().trim(); // Adjust selector based on your actual HTML structure
+            downloadArtist = $(this).siblings('p').first().text().trim(); // Adjust selector based on your actual HTML structure
+        }
+    
+        // combine title and artist
+        currentTitle = downloadTitle;
+        if (downloadArtist) {
+            currentTitle += ` - ${downloadArtist}`;
+        }
+    
+        // delete non-allowed characters 
+        currentTitle = currentTitle.replace(/[^a-zA-Z0-9 .\-,)(]/g, '');
 
     });
 
