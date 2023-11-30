@@ -249,6 +249,33 @@ $(function() {
 
     // modal image viewer logic
     let modalImage = document.getElementById("modal-image");
+    let currentHighResSrc = "";
+    let currentTitle = "";
+
+    function setupDownloadButton() {
+        $('#download-button').off('click').on('click', function(e) {
+            e.preventDefault(); // prevent the default anchor behavior
+            e.stopPropagation(); // prevent the click event from bubbling up to the modal
+    
+            fetch(`/api/image-proxy?url=${encodeURIComponent(currentHighResSrc)}`)
+                .then(response => response.blob())
+                .then(blob => {
+                    let blobUrl = window.URL.createObjectURL(blob);
+                    let tempLink = document.createElement('a');
+                    tempLink.href = blobUrl;
+                    tempLink.setAttribute('download', `${currentTitle}.jpg`.replace(/[^a-zA-Z0-9 .\-,)(]/g, ''));
+                    document.body.appendChild(tempLink);
+                    tempLink.click();
+                    document.body.removeChild(tempLink);
+                    window.URL.revokeObjectURL(blobUrl);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    }
+
+    setupDownloadButton();
 
     $('#gallery, #random-artwork').on('click', 'img', function() {
         modal.style.display = "block";
@@ -274,34 +301,11 @@ $(function() {
     
         // delete non-allowed characters 
         currentTitle = currentTitle.replace(/[^a-zA-Z0-9 .\-,)(]/g, '');
-
-  
-
-    $('#download-button').on('click', function(e) {
-        e.preventDefault(); // prevent the default anchor behavior
-        e.stopPropagation(); // prevent the click event from bubbling up to the modal
-
-        fetch(`/api/image-proxy?url=${encodeURIComponent(currentHighResSrc)}`)
-            .then(response => response.blob())
-            .then(blob => {
-                let blobUrl = window.URL.createObjectURL(blob);
-                let tempLink = document.createElement('a');
-                tempLink.href = blobUrl;
-                tempLink.setAttribute('download', `${currentTitle}.jpg`.replace(/[^a-zA-Z0-9 .\-,)(]/g, ''));
-                document.body.appendChild(tempLink);
-                tempLink.click();
-                document.body.removeChild(tempLink);
-                window.URL.revokeObjectURL(blobUrl);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-        });
-
     });
 
     // close the modal when the user clicks anywhere
     $('#modal').on("click", function() {
+        stopPropagation();
     $(this).css('display', 'none');
     $('#gallery img, #random-artwork img').show();
     });
