@@ -272,6 +272,7 @@ $(function() {
                 .catch(error => {
                     console.error(error);
                     console.log("Error downloading image - file size exceeds limit, please download manually")
+                    window.open(currentHighResSrc, '_blank').focus();
                 });
         });
     }
