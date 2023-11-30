@@ -265,8 +265,8 @@ $(function() {
         currentTitle += ` - ${downloadArtist}`;
     }
 
-    // replace non-allowed characters with underscores and then trim underscores
-    currentTitle = currentTitle.replace(/[^a-zA-Z0-9. -]/g, '')
+    // delete non-allowed characters 
+    currentTitle = currentTitle.replace(/[^a-zA-Z0-9."-]/g, '')
 
     });
 
