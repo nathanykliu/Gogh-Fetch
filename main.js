@@ -275,7 +275,7 @@ $(function() {
         // delete non-allowed characters 
         currentTitle = currentTitle.replace(/[^a-zA-Z0-9 .\-,)(]/g, '');
 
-    });
+  
 
     $('#download-button').on('click', function(e) {
         e.preventDefault(); // prevent the default anchor behavior
@@ -298,6 +298,7 @@ $(function() {
             });
         });
 
+    });
     // close the modal when the user clicks anywhere
     $('#modal').on("click", function() {
     $(this).css('display', 'none');
