@@ -266,10 +266,10 @@ $(function() {
     }
 
     // replace non-allowed characters with underscores and then trim underscores
-    currentTitle = currentTitle.replace(/[^a-zA-Z0-9. -]/g, '_').replace(/_+$/, '');
+    currentTitle = currentTitle.replace(/[^a-zA-Z0-9. -]/g, '')
 
     });
-    
+
     $('#download-button').on('click', function(e) {
         e.preventDefault(); // prevent the default anchor behavior
         e.stopPropagation(); // prevent the click event from bubbling up to the modal
@@ -297,15 +297,17 @@ $(function() {
     $('#gallery img, #random-artwork img').show();
     });
 
-     // preload high res images
-     function preloadHighRes() {
+    // preload high res images
+    function preloadHighRes() {
         $('#gallery img, #random-artwork img').each(function() {
-            const highResSrc = $(this).attr('src').replace("/web-large/", "/original/");
-            const img = new Image();
-            img.src = highResSrc;
+            const src = $(this).attr('src');
+            if (src) {
+                const highResSrc = src.replace("/web-large/", "/original/");
+                const img = new Image();
+                img.src = highResSrc;
+            }
         });
     }
-
     preloadHighRes();
 
     //music button logic
