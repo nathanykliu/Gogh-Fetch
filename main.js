@@ -266,7 +266,8 @@ $(function() {
     }
 
     // delete non-allowed characters 
-    currentTitle = currentTitle.replace(/[^a-zA-Z0-9."-]/g, '')
+    currentTitle = currentTitle.replace(/[^a-zA-Z0-9.\-,)(]/g, '');
+
 
     });
 
