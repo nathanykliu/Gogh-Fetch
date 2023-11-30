@@ -230,7 +230,7 @@ $(function() {
         infoBox.id = 'infoBox';
         infoBox.innerHTML = `
             <h3>Created by Nathan Liu</h3>
-            <p><a target = "_blank" href="https://github.com/nateykliu/Frontend">View this project in Github</a></p>
+            <p><a target = "_blank" href="https://github.com/nateykliu/Gogh-Fetch">View this project in Github</a></p>
             <p><a target = "_blank" href ="https://github.com/nateykliu/Gogh-Fetch/issues/new">Report a bug</a></p>
         `;
         document.body.appendChild(infoBox);
@@ -256,21 +256,14 @@ $(function() {
         modalImage.src = newSrc;
         currentHighResSrc = newSrc;
     
-        // Identify the context of the clicked image
-        let parentSection = $(this).closest('div'); // Get the closest parent div of the clicked image
+        let parentDiv = $(this).closest('.artwork');
+        let downloadTitle = parentDiv.find('h2').text().trim();
+        let downloadArtist = parentDiv.find('p').first().text().trim();
     
-        // Initialize downloadTitle and downloadArtist
-        let downloadTitle, downloadArtist;
-    
-        if (parentSection.is('#random-artwork')) {
-            // Fetch from random artwork section
+        // Check if the click is from the random artwork section
+        if ($(this).closest('#random-artwork').length) {
             downloadTitle = $('#artwork-title').text().trim();
             downloadArtist = $('#artwork-artist').text().trim();
-        } else if (parentSection.is('#gallery')) {
-            // Fetch from the gallery section
-            // Assuming each artwork div has a title and artist element
-            downloadTitle = $(this).siblings('h2').text().trim(); // Adjust selector based on your actual HTML structure
-            downloadArtist = $(this).siblings('p').first().text().trim(); // Adjust selector based on your actual HTML structure
         }
     
         // combine title and artist
