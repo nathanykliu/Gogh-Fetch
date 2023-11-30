@@ -178,7 +178,7 @@ $(function() {
 
                 //unknown artist handling
                 if (artwork.artistDisplayName === "") {
-                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text('Unknown Artist'));
+                    artistAndDate.append($('<span>').attr('id', 'artwork-artist').text('Unknown Artist, '));
                 } else {
                     artistAndDate.append($('<span>').attr('id', 'artwork-artist').text(artwork.artistDisplayName + ', '));
                 }
@@ -299,6 +299,7 @@ $(function() {
         });
 
     });
+
     // close the modal when the user clicks anywhere
     $('#modal').on("click", function() {
     $(this).css('display', 'none');
