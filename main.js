@@ -281,7 +281,7 @@ $(function() {
                 let blobUrl = window.URL.createObjectURL(blob);
                 let tempLink = document.createElement('a');
                 tempLink.href = blobUrl;
-                tempLink.setAttribute('download', `${currentTitle}.jpg`.replace(/[^a-zA-Z0-9. -]/g, '_'));
+                tempLink.setAttribute('download', `${currentTitle}.jpg`.replace(/[^a-zA-Z0-9 .\-,)(]/g, ''));
                 document.body.appendChild(tempLink);
                 tempLink.click();
                 document.body.removeChild(tempLink);
