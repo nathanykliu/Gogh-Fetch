@@ -76,7 +76,7 @@ $(function() {
         
                 // unknown artist handling
                 if (artwork.artistDisplayName === "") {
-                    $('#artwork-artist').text('Unknown Artist, ' + artwork.objectDate);
+                    $('#artwork-artist').text('Unknown Artist,' + artwork.objectDate);
                 } else {
                     $('#artwork-artist').text(artwork.artistDisplayName + ', ');
                 }
@@ -263,7 +263,7 @@ $(function() {
                     let blobUrl = window.URL.createObjectURL(blob);
                     let tempLink = document.createElement('a');
                     tempLink.href = blobUrl;
-                    tempLink.setAttribute('download', `${currentTitle}.jpg`.replace(/[^a-zA-Z0-9 ,.\-,)(]/g, ''));
+                    tempLink.setAttribute('download', `${currentTitle}.jpg`.replace(/[^a-zA-Z0-9 .\-,)(]/g, ''));
                     document.body.appendChild(tempLink);
                     tempLink.click();
                     document.body.removeChild(tempLink);
@@ -301,7 +301,7 @@ $(function() {
         }
     
         // delete non-allowed characters 
-        currentTitle = currentTitle.replace(/[^a-zA-Z0-9 ,.\-,)(]/g, '');
+        currentTitle = currentTitle.replace(/[^a-zA-Z0-9 .\-,)(]/g, '');
     });
 
     // close the modal when the user clicks anywhere
