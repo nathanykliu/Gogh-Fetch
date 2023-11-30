@@ -29,6 +29,7 @@ export default async function (req, res) {
         res.setHeader('Content-Type', contentType);
         res.send(imageBuffer);
     } catch (error) {
+        res.redirect(imageUrl);
         console.error(`Error fetching ${imageUrl}:`, error);
         res.status(500).send('Error fetching image');
     }
