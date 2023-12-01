@@ -194,7 +194,7 @@ $(function() {
         
                 // add medium and dimensions on another line
                 let mediumAndDimensions = $('<p>');
-                mediumAndDimensions.append($('<span>').attr('id', 'artwork-medium').text(artwork.medium));
+                mediumAndDimensions.append($('<span>').attr('id', 'artwork-medium').text(artwork.medium + ', '));
 
                 mediumAndDimensions.append($('<span>').attr('id', 'artwork-dimensions').text(artwork.dimensions));
                 artworkDiv.append(mediumAndDimensions);
@@ -323,7 +323,7 @@ $(function() {
             }
         });
     }
-    
+
     preloadHighRes();
 
     //music button logic
