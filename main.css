@@ -149,10 +149,6 @@ button#fetch-another{
     font-size: 19px
 }
 
-#download-button:hover {
-    transform: scale(1.05);
-}
-
 #search-btn {
     margin: 20px auto 0;
     padding: 10px 20px;
