@@ -137,6 +137,10 @@ button#fetch-another{
     font-size: 16px
 }
 
+button:hover {
+    transform: scale(1.05);
+}
+
 #download-button {
     display: block;
     margin: 20px auto 30px;
@@ -147,6 +151,10 @@ button#fetch-another{
     border-radius: 5px;
     cursor: pointer;
     font-size: 19px
+}
+
+#download-button:hover {
+    transform: scale(1.05);
 }
 
 #search-btn {

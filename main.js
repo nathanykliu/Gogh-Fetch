@@ -323,6 +323,7 @@ $(function() {
             }
         });
     }
+    
     preloadHighRes();
 
     //music button logic
