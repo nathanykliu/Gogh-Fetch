@@ -30,12 +30,6 @@
     --search-input-placeholder-color: #ccc;
 }
 
-/* fading effect for theme toggle */
-body, button, select, .artwork-container, #artwork-url, .met-link, .icon-button {
-    transition: background-color 1.25s ease, color 1.25s ease, border-color 1.25s ease, box-shadow 1.25s ease;
-    font-family: Georgia, serif, sans-serif;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -43,7 +37,6 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
 }
-
 
 #artwork-url, .met-link {
     color: var(--linkColor);
@@ -70,6 +63,7 @@ img {
     max-width: 100%; /* Maximum width inside the container */
     max-height: 100%; /* Maximum height inside the container */
     cursor: zoom-in;
+
 }
 
 .artwork-container {
@@ -97,16 +91,24 @@ img {
     background-color: var(--container-bg-color);
 }
 
-#artwork-image {
+ #artwork-image {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1), 
                 0 10px 20px rgba(0,0,0,0.2), 
                 0 20px 40px rgba(0,0,0,0.1);
     margin: 5px;
-    padding: 1px;
     background-clip: #ffffff;
     border-radius: 5px;
     background-color: var(--container-bg-color);
 }
+
+.artwork-image {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 
+    0 10px 20px rgba(0,0,0,0.2), 
+    0 20px 40px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    background-color: var(--container-bg-color);
+}
+
 
 [data-theme='dark'] #artwork-image {
     background-clip: #ffffff;
@@ -199,8 +201,6 @@ button#fetch-another:hover, #search-btn:hover {
     cursor: pointer;
     border-radius: 0 5px 5px 0;
 }
-
-
 
 #back-to-top {
     position: fixed;

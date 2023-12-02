@@ -30,21 +30,21 @@ $(function() {
     $('#fetch-another').on("click", function() {
         let $this = $(this);
     
-        // Change button text and cursor to indicate loading
+        // change button text and cursor to indicate loading ("wait cursor")
         $this.text('Searching...').css('cursor', 'wait');
         $('body').css('cursor', 'wait');
     
         fetchRandomArtwork()
             .then(function() {
-                // Restore the button text and cursor when the promise is resolved
+                // restore the button text and cursor when the promise is resolved
                 $this.text('Fetch Me Another!').css('cursor', '');
-                $('body').css('cursor', ''); // Restore the cursor for the body
+                $('body').css('cursor', ''); // restore the cursor for the body
             })
             .catch(function(error) {
                 console.error("Error in fetchRandomArtwork:", error);
-                // Restore the button text and cursor in case of an error
+                // restore the button text and cursor in case of an error
                 $this.text('Fetch Me Another!').css('cursor', '');
-                $('body').css('cursor', ''); // Restore the cursor for the body
+                $('body').css('cursor', '');
             });
     });
 
@@ -176,7 +176,7 @@ $(function() {
             if (artwork.primaryImageSmall) {
                 // create a new div for each artwork
                 let artworkDiv = $('<div>').addClass('artwork');
-                artworkDiv.append($('<img>').attr('src', artwork.primaryImageSmall));
+                artworkDiv.append($('<img>').attr('src', artwork.primaryImageSmall).addClass('artwork-image'));
                 artworkDiv.append($('<h2>').text(artwork.title));
                 $('#show-random').show();
         
