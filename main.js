@@ -286,7 +286,7 @@ $(function() {
 
     setupDownloadButton();
 
-    // download logic
+    // modal and download
     $('#gallery, #random-artwork').on('click', 'img', function() {
         modal.style.display = "block";
         let newSrc = $(this).attr('src').replace("/web-large/", "/original/");

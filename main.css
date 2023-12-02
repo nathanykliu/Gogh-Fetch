@@ -139,7 +139,8 @@ button#fetch-another{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #download-button {
@@ -152,17 +153,6 @@ button#fetch-another{
     border-radius: 5px;
     cursor: pointer;
     font-size: 19px
-}
-
-#search-btn {
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    background-color: var(--button-bg-color);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px
 }
 
 button#fetch-another:hover, #search-btn:hover {
@@ -193,13 +183,14 @@ button#fetch-another:hover, #search-btn:hover {
 }
 
 #search-btn {
-    padding: 10px 20px;
+    padding: 11px 20px;
     font-size: 16px;
     border: none;
     background-color: #333;
     color: #fff;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #back-to-top {
