@@ -83,7 +83,7 @@ $(function() {
         
                 // unknown artist handling
                 if (artwork.artistDisplayName === "") {
-                    $('#artwork-artist').text('Unknown Artist,' + artwork.objectDate);
+                    $('#artwork-artist').text('Unknown Artist, ' + artwork.objectDate);
                 } else {
                     $('#artwork-artist').text(artwork.artistDisplayName + ', ');
                 }
