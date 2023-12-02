@@ -4,7 +4,7 @@
     --text-color: #000000;
     --container-bg-color: #ffffff;
     --button-bg-color: #333;
-    --button-bg-color-hover: #555;
+    --button-bg-color-hover: #777;
     --border-color: #ccc;
     --input-bg-color: #fff;
     --box-shadow-color: rgba(0,0,0,0.1);
@@ -55,11 +55,13 @@ img[alt="logo"] {
     width: 400px; 
     height: 100px; 
     padding-top: 50px;
+    cursor: pointer;
 } 
 
 img {
     max-width: none;
     height: auto;
+    cursor: zoom-in;
 }
 
 #artwork-image {
@@ -67,6 +69,7 @@ img {
     height: auto; /* Maintain aspect ratio */
     max-width: 100%; /* Maximum width inside the container */
     max-height: 100%; /* Maximum height inside the container */
+    cursor: zoom-in;
 }
 
 .artwork-container {
@@ -197,9 +200,7 @@ button#fetch-another:hover, #search-btn:hover {
     border-radius: 0 5px 5px 0;
 }
 
-#search-btn:hover {
-    background-color: #555;
-}
+
 
 #back-to-top {
     position: fixed;
@@ -333,6 +334,10 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     height: auto; /* Maintain aspect ratio */
     max-width: 100%; /* Maximum width inside the container */
     max-height: 100%; /* Maximum height inside the container */
+}
+
+#modal-image {
+    cursor: zoom-out;
 }
 
 .close {

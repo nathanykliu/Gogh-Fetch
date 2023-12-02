@@ -30,14 +30,21 @@ $(function() {
     $('#fetch-another').on("click", function() {
         let $this = $(this);
     
-        $this.text('Searching...');
+        // Change button text and cursor to indicate loading
+        $this.text('Searching...').css('cursor', 'wait');
+        $('body').css('cursor', 'wait');
+    
         fetchRandomArtwork()
             .then(function() {
-                // Change the button text back to 'Fetch Me Another!' when the promise is resolved
-                $this.text('Fetch Me Another!');
+                // Restore the button text and cursor when the promise is resolved
+                $this.text('Fetch Me Another!').css('cursor', '');
+                $('body').css('cursor', ''); // Restore the cursor for the body
             })
             .catch(function(error) {
                 console.error("Error in fetchRandomArtwork:", error);
+                // Restore the button text and cursor in case of an error
+                $this.text('Fetch Me Another!').css('cursor', '');
+                $('body').css('cursor', ''); // Restore the cursor for the body
             });
     });
 
