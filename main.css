@@ -139,7 +139,7 @@ button#fetch-another{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 17px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -184,7 +184,7 @@ button#fetch-another:hover, #search-btn:hover {
 
 #search-btn {
     padding: 11px 20px;
-    font-size: 16px;
+    font-size: 17px;
     border: none;
     background-color: #333;
     color: #fff;
