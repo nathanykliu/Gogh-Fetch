@@ -127,7 +127,7 @@ img {
 
 .loading-message {
     display: none; 
-    color: #888;
+    color: #777;
 }
 
 button#fetch-another{
