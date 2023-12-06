@@ -15,4 +15,4 @@ Each click is a new surprise! :framed_picture::mag: Thanks for reading!
 Resources Used:
 [jQuery Library](https://jquery.com/), [MET API](https://metmuseum.github.io/)
 
-![ScreenShot](/images/preview.PNG)
+![ScreenShot](/images/preview2.PNG)
