@@ -416,6 +416,7 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     margin-top: 20px;
     cursor: pointer;
     border-radius: 5px;
+    font-family: 'Georgia';
 }
 
 

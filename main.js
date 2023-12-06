@@ -2,12 +2,6 @@
 //main function
 $(function() {
 
-    //declare global variables
-    createInfoBox();
-    let randomArt = [];
-    let $backToTopButton = $('#back-to-top');
-    let modal = document.getElementById("modal");
-
     //mobile modal
     function isMobileDevice() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -25,6 +19,12 @@ $(function() {
             mobileModal.style.display = "none";
         }
     }
+
+    //declare global variables
+    createInfoBox();
+    let randomArt = [];
+    let $backToTopButton = $('#back-to-top');
+    let modal = document.getElementById("modal");
 
     //fetch me another button functionality
     $('#fetch-another').on("click", function() {
