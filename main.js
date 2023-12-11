@@ -1,5 +1,5 @@
 
-//main function
+//jQuery wrapper
 $(function() {
 
     //mobile modal
