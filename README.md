@@ -1,6 +1,6 @@
 # Frontend
 
-Welcome to Gogh Fetch! :paintbrush:
+Hey there, welcome to Gogh Fetch! :paintbrush:
 
 [View Deployment](https://gogh-fetch.vercel.app/) or
 [View this project on GitHub](https://github.com/nateykliu/Gogh-Fetch) 
