@@ -53,7 +53,7 @@ $(function() {
         randomArt = data.objectIDs;
         fetchRandomArtwork();
     });
-
+    
     //initial fetch function (called above)
     function fetchRandomArtwork() {
         return new Promise((resolve, reject) => {
