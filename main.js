@@ -40,6 +40,7 @@ $(function() {
                 $this.text('Fetch Me Another!').css('cursor', '');
                 $('body').css('cursor', ''); // restore the cursor for the body
             })
+            
             .catch(function(error) {
                 console.error("Error in fetchRandomArtwork:", error);
                 // restore the button text and cursor in case of an error
@@ -53,7 +54,7 @@ $(function() {
         randomArt = data.objectIDs;
         fetchRandomArtwork();
     });
-    
+
     //initial fetch function (called above)
     function fetchRandomArtwork() {
         return new Promise((resolve, reject) => {
