@@ -127,7 +127,7 @@ $(function() {
     const searchBtn = document.getElementById('search-btn');
     const searchInput = document.getElementById('search-input');
     
-    //adding event listeners for clicking (and pressing enter) on the search button
+    //adding event listeners for clicking (also pressing enter) on the search button
     searchBtn.addEventListener('click', function() {
         performSearch(searchInput);
     });

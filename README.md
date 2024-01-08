@@ -12,4 +12,4 @@ Each click is a new surprise - thanks for reading, and have fun discovering new 
 Resources Used:
 [jQuery Library](https://jquery.com/), [MET API](https://metmuseum.github.io/)
 
-![ScreenShot](/images/preview.PNG) 
+![ScreenShot](/images/preview.PNG)
