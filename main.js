@@ -1,5 +1,5 @@
 
-//jQuery wrapper
+
 $(function() {
 
     //mobile modal
@@ -20,13 +20,13 @@ $(function() {
         }
     }
 
-    //declare global variables
+    // declare global variables
     createInfoBox();
     let randomArt = [];
     let $backToTopButton = $('#back-to-top');
     let modal = document.getElementById("modal");
 
-    //fetch me another button functionality
+    // fetch me another button functionality
     $('#fetch-another').on("click", function() {
         let $this = $(this);
     
@@ -55,7 +55,7 @@ $(function() {
         fetchRandomArtwork();
     });
 
-    //initial fetch function (called above)
+    // initial fetch function (called above)
     function fetchRandomArtwork() {
         return new Promise((resolve, reject) => {
 
@@ -96,7 +96,7 @@ $(function() {
                     $('#artwork-date').text(artwork.objectDate);
                 }
 
-                //append the rest of the artwork details
+                // append the rest of the artwork details
                 $('#artwork-medium').text(artwork.medium + ', ');
                 $('#artwork-dimensions').text(artwork.dimensions);
                 $('#artwork-url').attr('href', artwork.objectURL);
@@ -127,7 +127,7 @@ $(function() {
     const searchBtn = document.getElementById('search-btn');
     const searchInput = document.getElementById('search-input');
     
-    //adding event listeners for clicking (also pressing enter) on the search button
+    // adding event listeners for clicking (also pressing enter) on the search button
     searchBtn.addEventListener('click', function() {
         performSearch(searchInput);
     });
@@ -138,7 +138,7 @@ $(function() {
         }
     });
 
-    //perform search for artwork using MET API
+    // perform search for artwork using MET API
     function performSearch(searchInput) {
         let searchQuery = searchInput.value.trim();
 
@@ -169,7 +169,7 @@ $(function() {
         console.log("Search successful!")
     }
 
-    //display details of the gallery artwork
+    // display details of the gallery artwork
     function fetchArtworkGalleryDetails(objectID) {
         let detailUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`;
         
@@ -214,7 +214,7 @@ $(function() {
         });
     }
 
-    //go to top button at bottom left
+    // go to top button at bottom left
     $backToTopButton.on('click', function() {
         $('html, body').animate({scrollTop: 0}, 750);  // animation speed back to the top
     });
@@ -232,7 +232,7 @@ $(function() {
     });
     
 
-    //info box at bottom right
+    // info box at bottom right
     function createInfoBox() {
         const infoBox = document.createElement('div');
         infoBox.id = 'infoBox';
@@ -244,7 +244,7 @@ $(function() {
         document.body.appendChild(infoBox);
     }
 
-    //light and dark mode toggle button logic
+    // light and dark mode toggle button logic
     document.querySelector("#theme-toggle-checkbox").addEventListener("change", function() {
         let currentTheme = document.documentElement.getAttribute("data-theme");
         if (currentTheme === "dark") {
@@ -253,7 +253,6 @@ $(function() {
             document.documentElement.setAttribute("data-theme", "dark");
         } console.log("Theme toggled!");
     });
-
 
     // modal image viewer logic
     let modalImage = document.getElementById("modal-image");
