@@ -123,41 +123,6 @@ $(function() {
             });
     }
 
-    //new code here
-    // Function to hide all share-links containers
-    function hideAllShareLinks() {
-        $('.share-links').hide();
-    }
-
-    // Toggle share options on share button click
-    $('#gallery').on('click', '.share-btn', function(e) {
-        e.stopPropagation(); // Prevent the click from propagating to the document
-        const $shareContainer = $(this).next('.share-links');
-        
-        // Hide any open share-links containers before toggling the current one
-        hideAllShareLinks();
-        $shareContainer.toggle();
-
-        const metUrl = $(this).prev('.met-link').attr('href');
-        // Update share links with the MET URL
-        $shareContainer.find('.share-facebook').attr('href', `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(metUrl)}`);
-        $shareContainer.find('.share-twitter').attr('href', `https://twitter.com/intent/tweet?url=${encodeURIComponent(metUrl)}`);
-        $shareContainer.find('.share-pinterest').attr('href', `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(metUrl)}`);
-    });
-
-    // Logic to close the share options if the user clicks outside of them
-    $(document).on('click', function(e) {
-        if (!$(e.target).closest('.share-btn, .share-links').length) {
-            // If the clicked element is not a share-btn or within .share-links, hide all share-links
-            hideAllShareLinks();
-        }
-    });
-
-    // Prevent clicks within the share-links container from propagating to the document
-    $('#gallery').on('click', '.share-links', function(e) {
-        e.stopPropagation();
-    });
-
     // get the search button and input elements
     const searchBtn = document.getElementById('search-btn');
     const searchInput = document.getElementById('search-input');
