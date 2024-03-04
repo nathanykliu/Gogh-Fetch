@@ -216,7 +216,7 @@ $(function() {
 
     // go to top button at bottom left
     $backToTopButton.on('click', function() {
-        $('html, body').animate({scrollTop: 0},750);  // animation speed back to the top
+        $('html, body').animate({scrollTop: 0}, 750);  // animation speed back to the top
     });
 
     $(window).on('scroll', function() {
