@@ -215,7 +215,7 @@ $(function() {
         });
     }
 
-    // tell me more button
+    // event handling for tell me more button
     $(document).on('click', '#tell-me-more-btn', function() {
         console.log("tell me more button working!")
         const artworkId = $(this).attr('data-artwork-id');
@@ -226,7 +226,7 @@ $(function() {
     async function getArtworkInfoFromChatGPT(artworkId) {
         console.log("Sending request for artwork ID:", artworkId);
         try {
-            const response = await fetch("/get-artwork-info", {
+            const response = await fetch("/api/get-artwork-info", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
