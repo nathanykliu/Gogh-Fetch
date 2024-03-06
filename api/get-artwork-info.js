@@ -14,7 +14,7 @@ export default async function (req, res) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            model: "gpt-3.5-turbo-0125", // Make sure this model is correct and available
+            model: "gpt-4-0125-preview", // Make sure this model is correct and available
             prompt: prompt,
             temperature: 0.7,
             max_tokens: 150,
