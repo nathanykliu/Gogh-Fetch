@@ -108,8 +108,8 @@ $(function() {
                 console.log("Artwork without primary image found. Searching again...");
                 fetchRandomArtwork();
             }
-            // const tellMeMoreButton = $(`<button class="tell-me-more-btn" data-title="${artwork.title}" data-artist="${artwork.artistDisplayName || 'Unknown Artist'}">Tell Me More About This Artwork</button>`);
-            // $('#artwork-title').append(tellMeMoreButton); // Assuming #artwork-details is the element where you want to append the button
+            const tellMeMoreButton = $(`<button class="tell-me-more-btn" data-title="${artwork.title}" data-artist="${artwork.artistDisplayName || 'Unknown Artist'}">Tell Me More About This Artwork</button>`);
+            $('#artwork-title').append(tellMeMoreButton); // might want to change this to be hard coded?
         })
         
             .fail(function(jqXHR, textStatus, errorThrown) {
@@ -129,14 +129,12 @@ $(function() {
     $(document).on('click', '.tell-me-more-btn', function() {
         const artworkTitle = $(this).data('title');
         const artworkArtist = $(this).data('artist');
-        getArtworkInfoFromChatGPT(artworkTitle, artworkArtist); // Fetch the info
-        // Update modal content based on the fetched information
+        getArtworkInfoFromChatGPT(artworkTitle, artworkArtist);
         $('#infoModalTitle').text(artworkTitle);
-        // You can also update #infoModalContent once you receive the response from getArtworkInfoFromChatGPT
         $('#infoModal').css('display', 'block');
     });
     
-    // When the user clicks on <span> (x), close the modal
+    // close button
     $(document).on('click', '.close', function() {
         $('#infoModal').css('display', 'none');
     });
