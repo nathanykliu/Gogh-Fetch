@@ -236,7 +236,6 @@ $(function() {
             if (!response.ok) {
                 throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
             }
-        tell-me-more-btn
             const data = await response.json();
             console.log("Received response:", data);
             alert(data.text); // adjust to be more client friendly
