@@ -10,7 +10,7 @@ export default async function (req, res) {
         const response = await fetch("https://api.openai.com/v1/completions", {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${process.env.CHATGPT_API}`,
+                "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
@@ -27,7 +27,7 @@ export default async function (req, res) {
         if (!response.ok) {
             throw new Error(`OpenAI API responded with ${response.status}: ${response.statusText}`);
         }
-        
+
         const data = await response.json();
         res.status(200).json({text: data.choices[0].text});
 
