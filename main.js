@@ -108,8 +108,12 @@ $(function() {
                 console.log("Artwork without primary image found. Searching again...");
                 fetchRandomArtwork();
             }
-            const tellMeMoreButton = $(`<button class="tell-me-more-btn" data-title="${artwork.title}" data-artist="${artwork.artistDisplayName || 'Unknown Artist'}">Tell Me More About This Artwork</button>`);
-            $('#artwork-title').append(tellMeMoreButton); // might want to change this to be hard coded?
+            const tellMeMoreIcon = $(`
+            <div class="tell-me-more-btn" title="Tell Me More About This Artwork" data-title="${artwork.title}" data-artist="${artwork.artistDisplayName || 'Unknown Artist'}">
+                <i class="fa-solid fa-wand-sparkles"></i>
+            </div>
+            `);
+            $('#artwork-title').append(tellMeMoreIcon);
         })
         
             .fail(function(jqXHR, textStatus, errorThrown) {
@@ -165,7 +169,7 @@ $(function() {
             $('#infoModal').css('display', 'block');
         } catch (error) {
             console.error("Error fetching information from server: ", error);
-            $('#infoModalContent').html(`<p>Sorry, we couldn't fetch more information about this artwork.</p>`);
+            $('#infoModalContent').html(`<p>Sorry, we couldn't fetch more information about this artwork. If you think you've encountered an error, please report it using the link on the bottom right of this page.</p>`);
         }
     }
     

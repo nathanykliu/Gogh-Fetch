@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 export default async function (req, res) {
     // extracting artworkId and artist from the request body
     const { title, artist } = req.body;
-    const prompt = `Please keep your response to 6 sentences or less. Tell me more about "${title}" by ${artist}. Keep the sentences interest and light, and maybe use an emoji or two if you feel like it. Thanks GPT!`;
+    const prompt = `Please keep your response to 6 sentences or less. Keep the sentences interesting and light, and maybe use emojis, but no more than 4, only if you feel like it. Tell me more about "${title}" by ${artist}. Thanks GPT!`;
 
     try {
         // try making a request to the OpenAI API
