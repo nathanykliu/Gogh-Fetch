@@ -163,7 +163,7 @@ $(function() {
             console.log("Received response:", data);
     
             $('#infoModalTitle').text(artworkTitle);
-            $('#infoModalContent').html(`Info about "${artworkTitle}" by ${artworkArtist}: <p>${data.text}</p>`);
+            $('#infoModalContent').html(`"${artworkTitle}" by ${artworkArtist}: <p>${data.text}</p>`);
     
 
             $('#infoModal').css('display', 'block');
