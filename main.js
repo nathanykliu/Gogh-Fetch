@@ -210,8 +210,41 @@ $(function() {
                 artworkDiv.append($('<a>').attr('href', artwork.objectURL).addClass('met-link').text('View on MET'));
                 // append the artwork to the gallery container
                 $('#gallery').append(artworkDiv);
+
+                // tell me more button
+                $('.tell-me-more-btn').on('click', function() {
+                    let artworkId = $(this).data('artwork-id');
+                    let prompt = `Tell me more about the artwork with ID ${artworkId}`;
+                
+                    // call ChatGPT API function
+                    getArtworkInfoFromChatGPT(prompt);
+                });
             }
         });
+    }
+
+    // used for random artwork on initial page load
+    async function getArtworkInfoFromChatGPT(artworkId) {
+        try {
+            // Sending the artwork ID to your server
+            const response = await fetch("/get-artwork-info", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ artworkId: artworkId }) // Assuming your server expects the artwork ID
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
+            }
+    
+            const data = await response.json();
+            alert(data.text); // You might want to display this in a more user-friendly way
+        } catch (error) {
+            console.error("Error fetching information from server: ", error);
+            alert('Failed to fetch the artwork information. Please try again later.');
+        }
     }
 
     // go to top button at bottom left
