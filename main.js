@@ -222,24 +222,25 @@ $(function() {
 
     // used for random artwork on initial page load
     async function getArtworkInfoFromChatGPT(artworkId) {
+        console.log("Sending request for artwork ID:", artworkId); // Debug log
         try {
             const response = await fetch("/get-artwork-info", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ artworkId: artworkId }) // Assuming your server expects the artwork ID
+                body: JSON.stringify({ artworkId: artworkId })
             });
-    
+        
             if (!response.ok) {
                 throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
             }
-    
+        
             const data = await response.json();
-            alert(data.text); // You might want to display this in a more user-friendly way
+            console.log("Received response:", data); // Debug log
+            alert(data.text); // Adjust based on how your server formats the response
         } catch (error) {
             console.error("Error fetching information from server: ", error);
-            alert('Failed to fetch the artwork information. Please try again later.');
         }
     }
 
