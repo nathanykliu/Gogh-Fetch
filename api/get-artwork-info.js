@@ -6,7 +6,7 @@ export default async function (req, res) {
     const prompt = `Tell me more about "${title}" by ${artist}.`;
 
     try {
-        // making a request to the OpenAI API
+        // try making a request to the OpenAI API
                 const response = await fetch("https://api.openai.com/v1/completions", {
         method: "POST",
         headers: {
@@ -14,7 +14,7 @@ export default async function (req, res) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            model: "gpt-4-0125-preview", // Make sure this model is correct and available
+            model: "gpt-4-0125-preview", // change model here
             prompt: prompt,
             temperature: 0.7,
             max_tokens: 150,
