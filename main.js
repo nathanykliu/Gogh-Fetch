@@ -217,7 +217,6 @@ $(function() {
 
     // event handling for tell me more button
     $(document).on('click', '#tell-me-more-btn', function() {
-        console.log("tell me more button working!")
         const artworkId = $(this).attr('data-artwork-id');
         getArtworkInfoFromChatGPT(artworkId);
     });
