@@ -108,8 +108,6 @@ $(function() {
                 console.log("Artwork without primary image found. Searching again...");
                 fetchRandomArtwork();
             }
-            const tellMeMoreButton = $(`<button class="tell-me-more-btn" data-title="${artwork.title}" data-artist="${artwork.artistDisplayName || 'Unknown Artist'}">Tell Me More About This Artwork</button>`);
-            $('#artwork-url').append(tellMeMoreButton); // Assuming #artwork-details is the element where you want to append the button
         })
         
             .fail(function(jqXHR, textStatus, errorThrown) {
@@ -142,7 +140,7 @@ $(function() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ title: artworkTitle, artist: artworkArtist }) // Adjusted to send both title and artist
+                body: JSON.stringify({ title: artworkTitle, artist: artworkArtist })
             });
     
             if (!response.ok) {
@@ -150,7 +148,7 @@ $(function() {
             }
             const data = await response.json();
             console.log("Received response:", data);
-            alert(`Info about "${artworkTitle}" by ${artworkArtist}: ${data.text}`); // Example way to present the info
+            alert(`Info about "${artworkTitle}" by ${artworkArtist}: ${data.text}`); // make this more client friendly
         } catch (error) {
             console.error("Error fetching information from server: ", error);
         }
