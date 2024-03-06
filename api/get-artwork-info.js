@@ -1,10 +1,11 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
 import express from 'express';
 import fetch from 'node-fetch';
 import cors from 'cors';
 
 const PORT = process.env.PORT || 3000;
 
+dotenv.config();
 app.use(cors());
 app.use(express.json());
 
