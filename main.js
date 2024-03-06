@@ -113,7 +113,7 @@ $(function() {
                 <i class="fa-solid fa-wand-sparkles"></i>
             </div>
             `);
-            $('#artwork-image').append(tellMeMoreIcon);
+            $('#artwork-title').append(tellMeMoreIcon);
         })
         
             .fail(function(jqXHR, textStatus, errorThrown) {
