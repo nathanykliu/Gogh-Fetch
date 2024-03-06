@@ -129,7 +129,16 @@ $(function() {
     $(document).on('click', '.tell-me-more-btn', function() {
         const artworkTitle = $(this).data('title');
         const artworkArtist = $(this).data('artist');
-        getArtworkInfoFromChatGPT(artworkTitle, artworkArtist);
+        getArtworkInfoFromChatGPT(artworkTitle, artworkArtist); // Fetch the info
+        // Update modal content based on the fetched information
+        $('#infoModalTitle').text(artworkTitle);
+        // You can also update #infoModalContent once you receive the response from getArtworkInfoFromChatGPT
+        $('#infoModal').css('display', 'block');
+    });
+    
+    // When the user clicks on <span> (x), close the modal
+    $(document).on('click', '.close', function() {
+        $('#infoModal').css('display', 'none');
     });
 
     // used for random artwork on initial page load
