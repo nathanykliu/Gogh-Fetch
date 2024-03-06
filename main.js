@@ -212,7 +212,7 @@ $(function() {
                 $('#gallery').append(artworkDiv);
 
                 // tell me more button
-                $(document).on('click', '.tell-me-more-btn', function() {
+                $(document).on('click', '#tell-me-more-btn', function() {
                     console.log("tell me more button working!")
                     const artworkId = $(this).attr('data-artwork-id');
                     getArtworkInfoFromChatGPT(artworkId);
@@ -223,7 +223,7 @@ $(function() {
 
     // used for random artwork on initial page load
     async function getArtworkInfoFromChatGPT(artworkId) {
-        console.log("Sending request for artwork ID:", artworkId); // Debug log
+        console.log("Sending request for artwork ID:", artworkId);
         try {
             const response = await fetch("/get-artwork-info", {
                 method: "POST",
