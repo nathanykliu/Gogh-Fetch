@@ -1,9 +1,9 @@
 require('dotenv').config();
-const express = require('express');
-const fetch = require('node-fetch');
-const app = express();
+import express from 'express';
+import fetch from 'node-fetch';
+import cors from 'cors';
+
 const PORT = process.env.PORT || 3000;
-const cors = require('cors');
 
 app.use(cors());
 app.use(express.json());
@@ -30,7 +30,7 @@ app.post('/get-artwork-info', async (req, res) => {
             })
         });
         console.log("Received body:", req.body);
-        
+
         if (!response.ok) {
             console.error("Failed to fetch from OpenAI:", response.status, response.statusText);
             throw new Error(`OpenAI API responded with ${response.status}: ${response.statusText}`);
