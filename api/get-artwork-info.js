@@ -7,7 +7,7 @@ export default async function (req, res) {
 
     try {
         // try making a request to the OpenAI API
-                const response = await fetch("https://api.openai.com/v1/completions", {
+        const response = await fetch("https://api.openai.com/v1/completions", {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
@@ -17,7 +17,7 @@ export default async function (req, res) {
             model: "gpt-3.5-turbo-instruct", // change model here
             prompt: prompt,
             temperature: 0.7,
-            max_tokens: 150,
+            max_tokens: 300,
             top_p: 1.0,
             frequency_penalty: 0.0,
             presence_penalty: 0.0
