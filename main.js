@@ -109,7 +109,7 @@ $(function() {
                 fetchRandomArtwork();
             }
             const tellMeMoreButton = $(`<button class="tell-me-more-btn" data-title="${artwork.title}" data-artist="${artwork.artistDisplayName || 'Unknown Artist'}">Tell Me More About This Artwork</button>`);
-            $('#artwork-url').append(tellMeMoreButton); // Assuming #artwork-details is the element where you want to append the button
+            $('#artwork-title').append(tellMeMoreButton); // Assuming #artwork-details is the element where you want to append the button
         })
         
             .fail(function(jqXHR, textStatus, errorThrown) {
