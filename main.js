@@ -213,7 +213,7 @@ $(function() {
 
                 // tell me more button
                 $(document).on('click', '.tell-me-more-btn', function() {
-                    let artworkId = $(this).data('id');
+                    const artworkId = $(this).attr('data-artwork-id');
                     getArtworkInfoFromChatGPT(artworkId);
                 });
             }
@@ -235,7 +235,7 @@ $(function() {
             if (!response.ok) {
                 throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
             }
-        
+        tell-me-more-btn
             const data = await response.json();
             console.log("Received response:", data); // Debug log
             alert(data.text); // Adjust based on how your server formats the response
