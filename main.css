@@ -451,20 +451,23 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 
 .info-modal {
     display: none; 
-    position: absolute;
+    position: fixed;
     z-index: 1;
-    right: 0;
-    top: 0;
-    width: 30%;
-    height: 30%;
+    right: 20px;
+    top: 250px;
+    width: 20%;
+    height: 50%;
+    border-radius: 10px;
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+    align-items: center;
 }
 
 .info-modal-content {
     background-color: #fefefe;
     margin: 15% auto;
+    border-radius: 10px;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
