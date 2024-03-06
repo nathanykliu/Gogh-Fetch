@@ -211,15 +211,16 @@ $(function() {
                 // append the artwork to the gallery container
                 $('#gallery').append(artworkDiv);
 
-                // tell me more button
-                $(document).on('click', '#tell-me-more-btn', function() {
-                    console.log("tell me more button working!")
-                    const artworkId = $(this).attr('data-artwork-id');
-                    getArtworkInfoFromChatGPT(artworkId);
-                });
             }
         });
     }
+
+    // tell me more button
+    $(document).on('click', '#tell-me-more-btn', function() {
+        console.log("tell me more button working!")
+        const artworkId = $(this).attr('data-artwork-id');
+        getArtworkInfoFromChatGPT(artworkId);
+    });
 
     // used for random artwork on initial page load
     async function getArtworkInfoFromChatGPT(artworkId) {
