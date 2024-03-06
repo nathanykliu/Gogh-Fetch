@@ -1,9 +1,10 @@
 import fetch from 'node-fetch';
 
 export default async function (req, res) {
-    // Extracting artworkId and artist from the request body
+    // extracting artworkId and artist from the request body
     const { artworkId } = req.body;
-    const prompt = `Tell me more about the artwork with ID ${artworkId}`;
+    const { artworkArtist } = req.body
+    const prompt = `Tell me more about the artwork with ID ${artworkId} by ${artworkArtist}`;
 
     try {
         // making a request to the OpenAI API

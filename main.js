@@ -222,23 +222,23 @@ $(function() {
     });
 
     // used for random artwork on initial page load
-    async function getArtworkInfoFromChatGPT(artworkId) {
-        console.log("Sending request for artwork ID:", artworkId);
+    async function getArtworkInfoFromChatGPT(artworkTitle, artworkArtist) {
+        console.log("Requesting info for:", artworkTitle, "by", artworkArtist);
         try {
             const response = await fetch("/api/get-artwork-info", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ artworkId: artworkId })
+                body: JSON.stringify({ title: artworkTitle, artist: artworkArtist }) // Adjusted to send both title and artist
             });
-        
+    
             if (!response.ok) {
                 throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
             }
             const data = await response.json();
             console.log("Received response:", data);
-            alert(data.text); // adjust to be more client friendly
+            alert(`Info about "${artworkTitle}" by ${artworkArtist}: ${data.text}`); // Example way to present the info
         } catch (error) {
             console.error("Error fetching information from server: ", error);
         }
@@ -261,7 +261,6 @@ $(function() {
         location.reload();
     });
     
-
     // info box at bottom right
     function createInfoBox() {
         const infoBox = document.createElement('div');
