@@ -11,7 +11,7 @@ app.post('/get-artwork-info', async (req, res) => {
         const response = await fetch("https://api.openai.com/v1/completions", {
             method: "POST",
             headers: {
-                "Authorization": `Bearer YOUR_API_KEY_HERE`,
+                "Authorization": CHATGPT_API,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
