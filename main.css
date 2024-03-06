@@ -131,6 +131,7 @@ img {
 }
 
 button#fetch-another{
+    font-family: Georgia, serif, sans-serif;
     display: block;
     margin: 20px auto 0;
     padding: 10px 20px;
