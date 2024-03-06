@@ -7,21 +7,21 @@ export default async function (req, res) {
 
     try {
         // making a request to the OpenAI API
-        const response = await fetch("https://api.openai.com/v1/completions", {
-            method: "POST",
-            headers: {
-                "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                model: "text-davinci-003", // change model here
-                prompt: prompt,
-                temperature: 0.7,
-                max_tokens: 150,
-                top_p: 1.0,
-                frequency_penalty: 0.0,
-                presence_penalty: 0.0
-            })
+                const response = await fetch("https://api.openai.com/v1/completions", {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${process.env.CHATGPT_API}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            model: "gpt-3.5-turbo-instruct", // Make sure this model is correct and available
+            prompt: prompt,
+            temperature: 0.7,
+            max_tokens: 150,
+            top_p: 1.0,
+            frequency_penalty: 0.0,
+            presence_penalty: 0.0
+        })
         });
 
         if (!response.ok) {
