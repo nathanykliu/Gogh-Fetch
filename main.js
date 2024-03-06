@@ -212,12 +212,9 @@ $(function() {
                 $('#gallery').append(artworkDiv);
 
                 // tell me more button
-                $('.tell-me-more-btn').on('click', function() {
-                    let artworkId = $(this).data('artwork-id');
-                    let prompt = `Tell me more about the artwork with ID ${artworkId}`;
-                
-                    // call ChatGPT API function
-                    getArtworkInfoFromChatGPT(prompt);
+                $(document).on('click', '.tell-me-more-btn', function() {
+                    let artworkId = $(this).data('id');
+                    getArtworkInfoFromChatGPT(artworkId);
                 });
             }
         });
@@ -226,7 +223,6 @@ $(function() {
     // used for random artwork on initial page load
     async function getArtworkInfoFromChatGPT(artworkId) {
         try {
-            // Sending the artwork ID to your server
             const response = await fetch("/get-artwork-info", {
                 method: "POST",
                 headers: {
