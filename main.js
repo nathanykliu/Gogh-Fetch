@@ -125,7 +125,6 @@ $(function() {
             });
     }
 
-    
     // event handling for tell me more button
     $(document).on('click', '.tell-me-more-btn', function() {
         const artworkTitle = $(this).data('title');
@@ -144,17 +143,25 @@ $(function() {
                 },
                 body: JSON.stringify({ title: artworkTitle, artist: artworkArtist })
             });
-    
+        
             if (!response.ok) {
                 throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
             }
+    
             const data = await response.json();
             console.log("Received response:", data);
-            alert(`Info about "${artworkTitle}" by ${artworkArtist}: ${data.text}`); // make this more client friendly
+    
+            $('#infoModalTitle').text(artworkTitle);
+            $('#infoModalContent').html(`Info about "${artworkTitle}" by ${artworkArtist}: <p>${data.text}</p>`);
+    
+
+            $('#infoModal').css('display', 'block');
         } catch (error) {
             console.error("Error fetching information from server: ", error);
+            $('#infoModalContent').html(`<p>Sorry, we couldn't fetch more information about this artwork.</p>`);
         }
     }
+    
 
     // get the search button and input elements
     const searchBtn = document.getElementById('search-btn');
