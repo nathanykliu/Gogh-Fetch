@@ -101,7 +101,7 @@ $(function() {
                 $('#artwork-dimensions').text(artwork.dimensions);
                 $('#artwork-url').attr('href', artwork.objectURL);
                 $('')
-
+                $('.tell-me-more-btn').remove();
                 console.log(artwork);
                 console.log("Artwork with primary image found!")
             } else {
