@@ -138,7 +138,7 @@ $(function() {
         }
     });
 
-    // perform search for artwork using MET API
+    //  perform search for artwork using MET API
     function performSearch(searchInput) {
         let searchQuery = searchInput.value.trim();
 
