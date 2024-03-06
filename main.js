@@ -239,8 +239,8 @@ $(function() {
             }
         tell-me-more-btn
             const data = await response.json();
-            console.log("Received response:", data); // Debug log
-            alert(data.text); // Adjust based on how your server formats the response
+            console.log("Received response:", data);
+            alert(data.text); // adjust to be more client friendly
         } catch (error) {
             console.error("Error fetching information from server: ", error);
         }

@@ -29,8 +29,10 @@ app.post('/get-artwork-info', async (req, res) => {
                 presence_penalty: 0.0
             })
         });
-
+        console.log("Received body:", req.body);
+        
         if (!response.ok) {
+            console.error("Failed to fetch from OpenAI:", response.status, response.statusText);
             throw new Error(`OpenAI API responded with ${response.status}: ${response.statusText}`);
         }
 
