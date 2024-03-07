@@ -461,15 +461,15 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     z-index: 1;
     right: 5%;
     top: 50%;
-    transform: translateY(-50%); /* Center vertically */
-    max-width: 15%; /* Adjust as needed */
-    min-width: 15%; /* Adjust as needed for smaller screens */
+    transform: translateY(-50%);
+    max-width: 15%;
+    min-width: 15%;
     max-height: 50%;
-    overflow: auto; /* Allows scrolling inside the modal if the content is too long */
+    overflow: auto;
     background-color: var(--modal-bg-color);
     box-shadow: 0 0 10px var(--box-shadow-color);
     border-radius: 10px;
-    padding: 20px; /* Provide some padding around the content */
+    padding: 20px;
 }
 
 .info-modal-content {
