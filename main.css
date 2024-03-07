@@ -492,9 +492,9 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 }
 
 .tell-me-more-btn {
-    margin-top: 15px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    margin-top: 15px;
 }
 
 .tell-me-more-btn:hover {
