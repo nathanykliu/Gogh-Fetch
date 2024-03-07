@@ -1,8 +1,9 @@
 import fetch from 'node-fetch';
 
 export default async function (req, res) {
-    // extracting artworkId and artist from the request body
+    // extracting title and artist from the request body
     const { title, artist } = req.body;
+    // CHANGE PROMPT HERE
     const prompt = `Please keep your response to 6 sentences or less. Keep the sentences interesting and light, and use emojis, but no more than 4. Always be excited about the art. Tell me more about "${title}" by ${artist}. Don't ask the user any questions`;
 
     try {
