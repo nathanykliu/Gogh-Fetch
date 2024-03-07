@@ -104,10 +104,12 @@ $(function() {
                 $('.tell-me-more-btn').remove();
                 console.log(artwork);
                 console.log("Artwork with primary image found!")
+                
             } else {
                 console.log("Artwork without primary image found. Searching again...");
                 fetchRandomArtwork();
             }
+
             const tellMeMoreIcon = $(`
             <div class="tell-me-more-btn" title="Tell Me More About This Artwork" data-title="${artwork.title}" data-artist="${artwork.artistDisplayName || 'Unknown Artist'}">
                 <i class="fa-solid fa-wand-sparkles"></i>
