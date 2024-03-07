@@ -475,7 +475,6 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     margin: 15% auto;
     border-radius: 10px;
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
     color: var(--modal-content-text-color);
 }

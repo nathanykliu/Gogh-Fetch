@@ -144,6 +144,9 @@ $(function() {
     $(document).on('click', '.close', function() {
         $('#infoModal').css('display', 'none');
     });
+
+
+    
     
     // used for random artwork on initial page load
     async function getArtworkInfoFromChatGPT(artworkTitle, artworkArtist) {
