@@ -459,46 +459,44 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
     display: none; 
     position: fixed;
     z-index: 1;
-    right: 20px;
-    top: 250px;
-    width: 20%;
-    height: 50%;
-    border-radius: 10px;
-    overflow: auto;
-    align-items: center;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    max-width: 15%; /* Adjust as needed */
+    min-width: 15%; /* Adjust as needed for smaller screens */
+    max-height: 50%;
+    overflow: auto; /* Allows scrolling inside the modal if the content is too long */
     background-color: var(--modal-bg-color);
     box-shadow: 0 0 10px var(--box-shadow-color);
+    border-radius: 10px;
+    padding: 20px; /* Provide some padding around the content */
 }
 
 .info-modal-content {
-    background-color: var(--modal-content-bg-color);
-    margin: 15% auto;
-    border-radius: 10px;
-    padding: 20px;
-    width: 80%;
     color: var(--modal-content-text-color);
 }
 
 .close {
-    color: #aaa;
+    color: black;
     float: right;
-    font-size: 28px;
+    font-size: 35px;
     font-weight: bold;
+    margin-top: -10px;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #aaa;
     text-decoration: none;
     cursor: pointer;
 }
 
 .tell-me-more-btn {
     margin-top: 15px;
+    cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tell-me-more-btn:hover {
     transform: scale(1.2);
-  
 }
