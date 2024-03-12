@@ -81,12 +81,10 @@ $(function() {
             if (artwork.primaryImageSmall) {
                 
                 // applying details
-                $('.tell-me-more-btn').attr('data-artwork', artwork.title);
-                $('.tell-me-more-btn').attr('data-artworkartist', artwork.artistDisplayName || 'Unknown Artist');
-        
+  
                 // update using .data() to keep the jquery data store in sync
                 $('.tell-me-more-btn').data('artwork', artwork.title);
-                $('.tell-me-more-btn').data('artworkartist', artwork.artistDisplayName || 'Unknown Artist');
+                $('.tell-me-more-btn').data('artworkArtist', artwork.artistDisplayName || 'Unknown Artist');
         
                 $('#artwork-image').attr('src', artwork.primaryImageSmall);
                 $('#artwork-title').text(artwork.title);
