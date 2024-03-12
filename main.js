@@ -131,8 +131,8 @@ $(function() {
 
     // event handling for tell me more button
     $(document).on('click', '.tell-me-more-btn', function() {
-        const artworkTitle = $(this).data('title');
-        const artworkArtist = $(this).data('artist');
+        const artworkTitle = $(this).data('artwork');
+        const artworkArtist = $(this).data('artistDisplayname');
         getArtworkInfoFromChatGPT(artworkTitle, artworkArtist);
         $('#infoModalTitle').text(artworkTitle);
         $('#infoModal').css('display', 'block');
