@@ -83,8 +83,8 @@ $(function() {
                 // applying details
                 $('#artwork-image').attr('src', artwork.primaryImageSmall);
                 $('#artwork-title').text(artwork.title);
-                $('.tell-me-more-btn').attr('data-title', data.title);
-                $('.tell-me-more-btn').attr('data-artist', data.artist || 'Unknown Artist');
+                $('.tell-me-more-btn').attr('data-title', artwork.title);
+                $('.tell-me-more-btn').attr('data-artist', artwork.artistDisplayName || 'Unknown Artist');
 
                 // unknown artist handling
                 if (artwork.artistDisplayName === "") {
@@ -105,7 +105,6 @@ $(function() {
                 $('#artwork-dimensions').text(artwork.dimensions);
                 $('#artwork-url').attr('href', artwork.objectURL);
                 $('')
-                $('.tell-me-more-btn').remove();
                 console.log(artwork);
                 console.log("Artwork with primary image found!")
                 
@@ -113,13 +112,6 @@ $(function() {
                 console.log("Artwork without primary image found. Searching again...");
                 fetchRandomArtwork();
             }
-
-            const tellMeMoreIcon = $(`
-            <div class="tell-me-more-btn" title="Tell Me More About This Artwork" data-title="${artwork.title}" data-artist="${artwork.artistDisplayName || 'Unknown Artist'}">
-                <i class="fa-solid fa-wand-sparkles"></i>
-            </div>
-            `);
-            $('#artwork-title').append(tellMeMoreIcon);
 
         })
         
