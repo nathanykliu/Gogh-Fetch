@@ -110,7 +110,6 @@ $(function() {
                 console.log("Artwork with primary image found!")
                 
             } else {
-                $('.tell-me-more-btn').remove();
                 console.log("Artwork without primary image found. Searching again...");
                 fetchRandomArtwork();
             }
