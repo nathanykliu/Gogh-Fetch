@@ -129,12 +129,10 @@ $(function() {
             });
     }
 
-    // event handling for tell me more button
-    $(document).on('click', '.tell-me-more-btn', function() {
+    // event handling for chatGPT magic button
+    $('#random-artwork').on('click', '.tell-me-more-btn', function() {
         const artworkTitle = $(this).data('artwork');
-
-        // jquery .data() normalizes the data attribute to lowercase
-        const artworkArtist = $(this).data('artworkartist');
+        const artworkArtist = $(this).data('artworkartist'); // jquery normalizes this to lowercase
         getArtworkInfoFromChatGPT(artworkTitle, artworkArtist);
         $('#infoModalTitle').text(artworkTitle);
         $('#infoModal').css('display', 'block');
