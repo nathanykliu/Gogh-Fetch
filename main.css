@@ -493,12 +493,13 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 
 .tell-me-more-btn {
     display: flex;
-    justify-content: center;
-    width: 50px;
-    margin: auto;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 5px;
+    width: 19.2px;
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
-    margin-top: 15px;
+
 }
 
 .tell-me-more-btn:hover {
@@ -507,10 +508,22 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 
 .share-btn {
     display: flex;
-    justify-content: center;
+    font-size: 25px;
     cursor: pointer;
-    width: 50px;
-    margin: auto;
+    margin-left: 10px;
+    padding: 5px;
+    width: 19.2px;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
-    margin-top: 15px;
+
+}
+
+.share-btn:hover {
+    transform: scale(1.2);
+}
+
+.action-btns {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
 }
