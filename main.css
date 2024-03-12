@@ -177,7 +177,7 @@ button#fetch-another:hover, #search-btn:hover {
     border: 1px solid var(--border-color);
     background-color: var(--input-bg-color);
     padding: 10px;
-    font-size: 16px;
+    font-size: 17.5px;
     border-radius: 5px 0 0 5px;
     width: 300px;
     outline: none;
