@@ -492,6 +492,10 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 }
 
 .tell-me-more-btn {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    margin: auto;
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     margin-top: 15px;
@@ -499,4 +503,14 @@ input[type="checkbox"]:checked + .theme-toggle-label .theme-toggle-slider:before
 
 .tell-me-more-btn:hover {
     transform: scale(1.2);
+}
+
+.share-btn {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    width: 50px;
+    margin: auto;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    margin-top: 15px;
 }

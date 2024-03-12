@@ -79,9 +79,13 @@ $(function() {
         return $.get(detailUrl)
         .done(function(artwork) {
             if (artwork.primaryImageSmall) {
+                
+                // applying details
                 $('#artwork-image').attr('src', artwork.primaryImageSmall);
                 $('#artwork-title').text(artwork.title);
-        
+                $('.tell-me-more-btn').attr('data-title', data.title);
+                $('.tell-me-more-btn').attr('data-artist', data.artist || 'Unknown Artist');
+
                 // unknown artist handling
                 if (artwork.artistDisplayName === "") {
                     $('#artwork-artist').text('Unknown Artist, ' + artwork.objectDate);
@@ -106,6 +110,7 @@ $(function() {
                 console.log("Artwork with primary image found!")
                 
             } else {
+                $('.tell-me-more-btn').remove();
                 console.log("Artwork without primary image found. Searching again...");
                 fetchRandomArtwork();
             }
@@ -116,6 +121,7 @@ $(function() {
             </div>
             `);
             $('#artwork-title').append(tellMeMoreIcon);
+
         })
         
             .fail(function(jqXHR, textStatus, errorThrown) {
@@ -145,10 +151,7 @@ $(function() {
         $('#infoModal').css('display', 'none');
     });
 
-
-    
-    
-    // used for random artwork on initial page load
+    // chatGPT magic button API call
     async function getArtworkInfoFromChatGPT(artworkTitle, artworkArtist) {
         console.log("Requesting info for:", artworkTitle, "by", artworkArtist);
         try {
@@ -206,7 +209,7 @@ $(function() {
                     // clear any previous artworks
                     $('#gallery').empty();
                     
-                    // loop through the first 20 results or as many as there are
+                    // loop through the first 50 results
                     for (let i = 0; i < Math.min(50, randomArt.length); i++) {
                         fetchArtworkGalleryDetails(randomArt[i]);
                     }
