@@ -140,7 +140,7 @@ $(function() {
         $('#infoModal').css('display', 'block');
     });
     
-    // close button
+    // close button 
     $(document).on('click', '.close', function() {
         $('#infoModal').css('display', 'none');
     });
