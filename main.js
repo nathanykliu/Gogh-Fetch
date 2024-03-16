@@ -131,7 +131,7 @@ $(function() {
             });
     }
 
-    // event handling for chatGPT magic button
+    // event handling for chatGPT magic button 
     $('#random-artwork').on('click', '.tell-me-more-btn', function() {
         const artworkTitle = $(this).data('artwork');
         const artworkArtist = $(this).data('artworkArtist'); // jquery normalizes this to lowercase
