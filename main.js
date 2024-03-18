@@ -134,7 +134,7 @@ $(function() {
     // event handling for chatGPT magic button 
     $('#random-artwork').on('click', '.tell-me-more-btn', function() {
         const artworkTitle = $(this).data('artwork');
-        const artworkArtist = $(this).data('artworkArtist'); // jquery normalizes this to lowercase
+        const artworkArtist = $(this).data('artworkArtist'); // jquery normalizes this to lowercase 
         getArtworkInfoFromChatGPT(artworkTitle, artworkArtist);
         $('#infoModalTitle').text(artworkTitle);
         $('#infoModal').css('display', 'block');
