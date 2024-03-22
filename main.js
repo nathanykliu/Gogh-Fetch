@@ -174,7 +174,45 @@ $(function() {
             $('#infoModalContent').html(`<p>Sorry, we couldn't fetch more information about this artwork. If you think you've encountered an error, please report it using the link on the bottom right of this page.</p>`);
         }
     }
-    
+
+    // share button
+    $(document).on('click', '.share-btn', function() {
+        $('#shareModal').show();
+    });
+
+    $(document).on('click', '.close', function() {
+        $('#shareModal').hide();
+    });
+
+    $(document).on('click', '.modal-content', function(event) {
+        event.stopPropagation();
+    });
+
+    $(window).on('click', function(event) {
+        if ($(event.target).is('#shareModal')) {
+            $('#shareModal').hide();
+        }
+    });
+
+    $(document).on('click', '.social-link', function(event) {
+        event.preventDefault();
+        const platform = $(this).data('platform');
+        const metMuseumUrl = $('#artwork-url').attr('href')
+        let shareUrl = '';
+
+        switch (platform) {
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(metMuseumUrl)}`;
+                break;
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(metMuseumUrl)}`;
+                break;
+            case 'pinterest':
+                shareUrl = `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(metMuseumUrl)}`;
+                break;
+        }
+        window.open(shareUrl, '_blank');
+    });
 
     // get the search button and input elements
     const searchBtn = document.getElementById('search-btn');
