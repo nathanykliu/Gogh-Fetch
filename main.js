@@ -180,7 +180,7 @@ $(function() {
         $('#shareModal').show();
     });
 
-    $(document).on('click', '.close', function() {
+    $(document).on('click', '.shareModalclose', function() {
         $('#shareModal').hide();
     });
 
