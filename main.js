@@ -145,7 +145,7 @@ $(function() {
         $('#infoModal').css('display', 'none');
     });
     
-    // chatGPT magic button API call  
+    // chatGPT magic button API call
     async function getArtworkInfoFromChatGPT(artworkTitle, artworkArtist) {
         console.log("Requesting info for:", artworkTitle, "by", artworkArtist);
         try {
