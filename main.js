@@ -329,8 +329,8 @@ $(function() {
         infoBox.id = 'infoBox';
         infoBox.innerHTML = `
             <h3>Created by Nathan Liu</h3>
-            <p><a target = "_blank" href="https://github.com/nateykliu/Gogh-Fetch">View this project in GitHub</a></p>
-            <p><a target = "_blank" href ="https://github.com/nateykliu/Gogh-Fetch/issues/new">Report a problem</a></p>
+            <p><a target = "_blank" href="https://github.com/nathanykliu/Gogh-Fetch">View this project in GitHub</a></p>
+            <p><a target = "_blank" href ="https://github.com/nathanykliu/Gogh-Fetch/issues/new">Report a problem</a></p>
         `;
         document.body.appendChild(infoBox);
     }
