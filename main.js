@@ -312,7 +312,7 @@ $(function() {
     });
 
     $(window).on('scroll', function() {
-        if ($(window).scrollTop() > 200) {  // show "go to top" button after scrolling 200px
+        if ($(window).scrollTop() > 200) {  // show "go to top" button after scrolling 200px  
             $backToTopButton.fadeIn();
         } else {
             $backToTopButton.fadeOut();
